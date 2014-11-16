@@ -1,0 +1,452 @@
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+@import "../../variables";
+
+/**
+ * Shared variables
+ */
+$drabBlue: #243850;
+$lightGray: #eee;
+$medGray: #ccc;
+
+%tabs-position-relative {
+	position: relative;
+}
+
+%tab-zindex-100 {
+	z-index: 100;
+}
+
+%tab-background-243850 {
+	background: $drabBlue;
+	background: transparentize($drabBlue, 0.1);
+
+	img {
+		height: auto;
+		width: 100%;
+	}
+}
+
+%tab-figure-captions {
+	bottom: 0;
+	color: #fff;
+	left: 0;
+	padding: 0.5em 1em;
+	position: relative;
+	right: 0;
+	z-index: 101;
+
+	a {
+		color: #fff;
+	}
+}
+
+%carousel-s2-prv-nxt-common {
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+%carousel-s2-prv-nxt-a-common {
+	border: 0;
+	padding: 10px 5px;
+	width: 100%;
+}
+
+%carousel-s2-btn-common {
+	background: #fff;
+	border-radius: 999px;
+	box-shadow: 0 0 4px $drabBlue;
+}
+
+%carousel-color-drabblue {
+	color: $drabBlue;
+}
+
+%carousel-s2-prv-nxt-glyphicon-common {
+	font-size: 1.75em;
+	height: 1.75em;
+	line-height: 1.75em;
+	margin: auto 0;
+	text-align: center;
+	width: 1.75em;
+}
+
+%tabs-background-transparent {
+	background: transparent;
+}
+
+%tabs-box-shadow-none {
+	box-shadow: none;
+}
+
+%tabs-carousel-border-top-none-padding-top-1 {
+	border-top: 0;
+	padding-top: 10px;
+}
+
+%tabs-display-inline-block {
+	display: inline-block;
+}
+
+%tabs-margin-bottom-0 {
+	margin-bottom: 0;
+}
+
+%tabs-details-padding-6-12 {
+	> {
+		details {
+			padding: 6px 12px;
+		}
+	}
+}
+
+.csstransitions {
+	.wb-tabs {
+		[role="tabpanel"] {
+			&.out {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 0;
+			}
+		}
+	}
+}
+
+.wb-tabs {
+	/**
+	 * Default, minimal, shared style
+	 */
+	@extend %tabs-position-relative;
+
+	/* For backwards compatibility. Should be removed in v4.1 */
+	@extend %tabs-details-padding-6-12;
+
+	> {
+		.tabpanels {
+			@extend %tabs-details-padding-6-12;
+			overflow: hidden;
+			position: relative;
+		}
+	}
+
+	[role="tablist"] {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+
+		li {
+			@extend %tabs-display-inline-block;
+			background: #ebf2fc;
+			border: 1px solid $medGray;
+			color: #000;
+			cursor: pointer;
+			margin: 0 10px 0 0;
+			position: relative;
+			text-align: center;
+
+			a {
+				@extend %tabs-display-inline-block;
+				color: #000;
+				// changed padding and margin from em to px to fix web-kit layout issue
+				padding: 10px;
+				text-decoration: none;
+			}
+
+			&:focus,
+			&:hover {
+				background: $medGray;
+				background: transparentize($medGray, 0.1);
+			}
+
+			&.active {
+				background: #fff;
+				border-bottom: 0;
+				cursor: default;
+				padding-bottom: 1px;
+				z-index: 2;
+
+				a {
+					border-top: 4px solid #666;
+					cursor: default;
+					padding-top: 6px;
+				}
+			}
+
+			&.tab-count {
+				line-height: normal;
+
+				> {
+					div {
+						position: relative;
+						top: 0.4em;
+					}
+				}
+
+				.curr-count {
+					font-size: 1.5em;
+				}
+
+				&:focus,
+				&:hover {
+					background: transparent;
+					cursor: default;
+				}
+			}
+		}
+
+		&.generated {
+			li {
+				border-bottom: 0;
+				top: 1px;
+			}
+		}
+	}
+
+	[role="tabpanel"] {
+		position: relative;
+		z-index: 1;
+	}
+
+	/**
+	 * Style 1 - Basic carousel style
+	 */
+	&.carousel-s1 {
+		border-top: 0;
+
+		[role="tablist"] {
+			bottom: 1em;
+			left: 1em;
+			position: static;
+
+			li {
+				@extend %global-display-none;
+				@extend %tab-zindex-100;
+
+				&.control {
+					@extend %tabs-display-inline-block;
+				}
+
+				&.prv {
+					margin-right: 5px;
+				}
+
+				&.tab-count {
+					background: none;
+					border: 0;
+					font-size: 0.9em;
+
+					> {
+						div {
+							top: 0.7em;
+						}
+					}
+
+					&.active,
+					&:focus,
+					&:hover {
+						cursor: default;
+						top: 0;
+					}
+				}
+
+				&.active,
+				&:focus,
+				&:hover {
+					top: 1px;
+
+					a {
+						@extend %tabs-carousel-border-top-none-padding-top-1;
+					}
+				}
+			}
+		}
+
+		figure {
+			@extend %tabs-position-relative;
+			@extend %tab-background-243850;
+		}
+
+		figcaption {
+			@extend %tab-figure-captions;
+
+			p {
+				@extend %tabs-margin-bottom-0;
+			}
+		}
+	}
+
+	/**
+	 * Style 2 - Slider-like carousel style
+	 */
+	&.carousel-s2 {
+		background: #eee;
+		padding-bottom: 4.375em;
+
+		[role="tablist"] {
+			bottom: 0;
+			position: absolute;
+			width: 100%;
+
+			li {
+				@extend %global-display-none;
+				@extend %tab-zindex-100;
+				background: transparent;
+				border: 0;
+
+				&.control {
+					@extend %tabs-display-inline-block;
+				}
+
+				&.prv {
+					@extend %carousel-s2-prv-nxt-common;
+
+					a {
+						@extend %carousel-s2-prv-nxt-a-common;
+						@extend %carousel-color-drabblue;
+						padding-left: 1em;
+
+						.glyphicon {
+							@extend %carousel-s2-btn-common;
+							@extend %carousel-s2-prv-nxt-glyphicon-common;
+						}
+
+						&:focus,
+						&:hover {
+							@extend %tabs-background-transparent;
+
+							.glyphicon {
+								@extend %tabs-box-shadow-none;
+							}
+						}
+					}
+				}
+
+				&.nxt {
+					@extend %carousel-s2-prv-nxt-common;
+
+					a {
+						@extend %carousel-s2-prv-nxt-a-common;
+						@extend %carousel-color-drabblue;
+
+						.glyphicon {
+							@extend %carousel-s2-btn-common;
+							@extend %carousel-s2-prv-nxt-glyphicon-common;
+						}
+
+						&:focus,
+						&:hover {
+							@extend %tabs-background-transparent;
+
+							.glyphicon {
+								@extend %tabs-box-shadow-none;
+							}
+						}
+					}
+				}
+
+				&.plypause {
+					background: none;
+					border: 0;
+					float: right;
+					margin-right: 0;
+					padding: 2px 0;
+
+					a {
+						@extend %carousel-s2-btn-common;
+						@extend %carousel-color-drabblue;
+						font-size: 1.5em;
+						margin-top: 0.4em;
+						margin-right: 0.65em;
+						padding: 8px 10px 4px;
+
+						&:focus,
+						&:hover {
+							@extend %tabs-box-shadow-none;
+						}
+					}
+				}
+			}
+		}
+
+		figure {
+			@extend %tabs-position-relative;
+			@extend %tab-background-243850;
+
+			img {
+				@extend %tab-width-100-height-auto;
+			}
+		}
+
+		figcaption {
+			@extend %tab-figure-captions;
+
+			a {
+				@extend %tab-figure-captions-links;
+			}
+
+			p {
+				@extend %tabs-margin-bottom-0;
+			}
+		}
+	}
+}
+
+.wb-disable {
+	.csstransitions {
+		.wb-tabs {
+			[role="tabpanel"] {
+				&.out {
+					position: static;
+					width: auto;
+				}
+			}
+		}
+	}
+
+	.wb-tabs {
+		// Only for backwards compatibility. Should be removed in v4.1.
+		> {
+			details {
+				@extend %global-display-block;
+
+				&[open] {
+					> {
+						summary {
+							@extend %global-display-block-important;
+						}
+					}
+				}
+			}
+
+			.tabpanels {
+				> {
+					details {
+						@extend %global-display-block;
+
+						&[open] {
+							> {
+								summary {
+									@extend %global-display-block-important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		[role="tablist"] {
+			display: none;
+		}
+
+		[role="tabpanel"] {
+			display: block;
+			opacity: 1;
+		}
+	}
+}
