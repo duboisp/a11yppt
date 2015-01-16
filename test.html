@@ -1,0 +1,1479 @@
+ 
+ 
+<!DOCTYPE html>
+<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]--><head>
+<meta charset="utf-8" />
+<!-- Web Experience Toolkit (WET) / BoÃ®te Ã  outils de l'expÃ©rience Web (BOEW)
+wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt -->
+ 
+	<!-- TITLE BEGINS | DEBUT DU TITRE  -->
+	
+	<title>Web Admin Guide - Quality Assurance (QA)</title>
+	<meta name="dcterms.language" title="ISO639-2" content="eng" />
+	
+	<!-- METADATA ENDS | FIN DES METADONNEES -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+ 
+<script src="/wet3/build/js/jquery.min.js"></script>
+<!--[if lte IE 8]>
+<script src="/wet3/build/js/polyfills/html5shiv-min.js"></script>
+<link rel="stylesheet" href="/wet3/build/grids/css/util-ie-min.css" />
+<link rel="stylesheet" href="/wet3/build/js/css/pe-ap-ie-min.css" />
+<link rel="stylesheet" href="/wet3/build/theme-gcwu-intranet/css/theme-ie-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic-theme-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic-theme-ie-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic-util-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic.css" />
+<link rel="stylesheet" href="/wet3/css/cic-util-ie-min.css" />
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<link rel="stylesheet" href="/wet3/build/grids/css/util-min.css" />
+<link rel="stylesheet" href="/wet3/build/js/css/pe-ap-min.css" />
+<link rel="stylesheet" href="/wet3/build/theme-gcwu-intranet/css/theme-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic-theme-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic-util-min.css" />
+<link rel="stylesheet" href="/wet3/css/cic.css" />
+<!--<![endif]-->
+ 
+<noscript><link rel="stylesheet" href="/wet3/build/theme-gcwu-intranet/css/theme-ns-min.css" /></noscript>
+ 
+	<script type="text/javascript">
+	// For manuals to link to Justice
+	function getReference(Ref){
+		NewReg = Ref.innerHTML;
+		//check the language of the current document calling the function
+		NewLocation = "/manuals/_includes/actsregssearch_e.asp?NewReg=" + NewReg
+ 
+		window.open(NewLocation,"Regulations","width=490, height=400, toolbar=no, menubar=no, location=no, directories=no, scrollbars=yes, resizable=yes" );
+	}
+ 
+	$(document).ready(function(){ 
+		// Remove broken Manuals and Tools breadcrumb link
+		//$("#gcwu-bc-in").html($("#gcwu-bc-in").html().replace(/<li>(| +)(|&gt;)(| +)<a href="\/connexion\/tools-outils\/index-eng.aspx">(| +)Manuals(| +)and(| +)tools(| +)<\/a>(| +)<\/li>/g,""));
+			// Recreated to work in IE8
+			$("#gcwu-bc-in").html($("#gcwu-bc-in").html().replace(/<\w\w>(&gt;|)(| +)<\w href="\/connexion\/tools-outils\/index-eng.aspx">(| +)Manuals(| +)and(| +)tools(| +)<\/\w>(| +)<\/\w\w>/g,""));
+		// Remove greater-than symbols
+		$("#gcwu-bc-in").html($("#gcwu-bc-in").html().replace(/&gt;/g,""));
+	});
+	</script>
+ 
+<!-- CustomScriptsCSSStart -->
+<!-- CustomScriptsCSSEnd -->
+ 
+	
+<!-- CUSTOM SCRIPTS/CSS BEGIN | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
+<link href="/connexion/webadmin/qa/qa.css" type="text/css" rel="stylesheet" />
+<!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
+ 
+ 
+</head>
+ 
+<body>
+ 
+ 
+ 
+<div id="wb-body">
+<!--googleoff: all-->
+<noindex>
+<div id="wb-skip">
+<ul id="wb-tphp">
+<li id="wb-skip1"><a href="#wb-cont">Skip to main content</a></li>
+<li id="wb-skip2"><a href="#wb-nav">Skip to secondary menu</a></li>
+</ul>
+</div>
+ 
+<div id="wb-head"><div id="wb-head-in"><header>
+<!-- HeaderStart -->
+<nav role="navigation"><div id="gcwu-gcnb"><h2>Intranet navigation bar</h2><div id="gcwu-gcnb-in"><div id="gcwu-intranetnb"><div id="gcwu-intranetnb-in">
+<ul>
+<li id="gcwu-gcnb1"><a href="http://publiservice.gc.ca/menu_e.html">Publiservice</a></li>
+<li id="gcwu-gcnb2"><a href="http://www.cic.gc.ca/english/index.asp">CIC</a></li>
+<li id="gcwu-gcnb3"><a href="http://atlas/index_eng.asp">CBSA</a></li>
+<li id="gcwu-gcnb4"><a href="http://intra/intranet/index.aspx?lang=eng">DFATD</a></li>
+<li id="gcwu-gcnb-lang"><a href="/cgi-bin/lang_all.asp" lang="fr">Fran&ccedil;ais</a></li>
+<!--<li id="gcwu-gcnb-lang"><a href="/cgi-bin/lang_all.asp?lang=fr" lang="fr">Fran&ccedil;ais</a></li>-->
+</ul>
+</div></div>
+<div id="gcwu-gcnb-fip">
+<div id="gcwu-sig"><div id="gcwu-sig-in"><div id="gcwu-sig-eng" title="Government of Canada"><img src="/wet3/build/theme-gcwu-intranet/images/sig-eng.gif" width="214" height="20" alt="Government of Canada" /></div></div></div>
+<div id="gcwu-wmms"><div id="gcwu-wmms-in"><div id="gcwu-wmms-fip" title="Symbol of the Government of Canada"><img src="/wet3/build/theme-gcwu-intranet/images/wmms.gif" width="126" height="30"  alt="Symbol of the Government of Canada" /></div></div></div>
+</div></div></div></nav>
+ 
+<div id="gcwu-bnr" role="banner"><div id="gcwu-bnr-in">
+<div id="gcwu-title"><p id="gcwu-title-in"><a href="/connexion/index-eng.aspx">Connexion</a></p></div>
+ 
+<section role="search"><div id="gcwu-srchbx"><h2>Search</h2>
+<form method="get"  action="/search-recherche/index-eng.aspx"><div id="gcwu-srchbx-in">
+       				<input type="hidden" name="search" value="basic" />
+                    <input type="hidden" name="m" value="10" />
+                    <input type="hidden" name="s" value="0" />
+                    <input type="hidden" name="l" value="e" />
+                    <input type="hidden" name="st" value="r" />
+<label for="query">Search website</label><input id="query" name="query" type="search" value="" size="27" maxlength="150" />
+<input id="gcwu-srch-submit" name="gcwu-srch-submit" type="submit" value="Search" data-icon="search" />
+</div></form>
+ 
+</div></section>
+</div></div>
+ 
+<nav role="navigation">
+<div id="gcwu-psnb"><h2><span>Site </span>menu</h2><div id="gcwu-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
+<ul class="mb-menu" data-ajax-replace="/includes/eng/nav/menu-eng.txt">
+<li><div><a href="#">Manuals and tools</a></div></li>
+<li><div><a href="#">Human resources</a></div></li>
+<li><div><a href="#">Communications</a></div></li>
+<li><div><a href="#">Administration</a></div></li>
+<li><div><a href="#">Finance</a></div></li>
+<li><div><a href="#">Travel, hospitality and conferences</a></div></li>
+<li><div><a href="#">Security and emergencies</a></div></li>
+<li><div><a href="#">Governance and management practices</a></div></li>
+<li><div><a href="#">Library</a></div></li>
+<li><div><a href="#">About CIC</a></div></li>
+</ul>
+</div></div></div></div>
+ 
+<div id="gcwu-bc"><h2>Breadcrumb trail</h2><div id="gcwu-bc-in">
+<ol>
+<li><a href="/connexion/index-eng.aspx">Home</a></li>
+ 
+ 
+<!-- BREAD CRUMB BEGINS | DEBUT DE LA PISTE DE NAVIGATION -->
+ 
+<li><a href="/connexion/webadmin/index.aspx">Web Admin Guide</a></li>
+ 
+ 
+<!-- BREAD CRUMB ENDS | FIN DE LA PISTE DE NAVIGATION --> 
+ 
+</ol>
+</div></div>
+ 
+</nav>
+<!-- HeaderEnd -->
+</header></div></div></noindex>
+<!--googleon: all-->
+ 
+<div id="wb-core"><div id="wb-core-in" class="equalize">
+<div id="wb-main" role="main"><div id="wb-main-in">
+<div><div>
+<!-- MainContentStart -->
+ 
+ 
+<!-- CONTENT TITLE BEGINS / DEBUT DU TITRE DU CONTENU -->
+<h1 id="wb-cont">Quality Assurance (QA)</h1>
+ 
+<!-- CONTENT TITLE ENDS / FIN DU TITRE DU CONTENU -->
+ 
+		<section> 
+            <!-- CONTENT BEGINS | DEBUT DU CONTENU -->
+            <p>Here are the steps you can use to assess and QA your Web documents. You will require Firefox and the following add-ons: Web Developper Toolbar, WAVE Toolbar. Other useful add-ons could include Firebug (Inspects CSS and code), ColorZilla / WCAG Contrast Checker, IE&nbsp;View Lite, HTML “Tidy” Validator, PDF Download and Link Evaluator (it checks for broken links but you must still test all your links).</p>
+			
+				<details>
+					<summary>1.  Check for validation errors and validate to W3C standards</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+						<ol>
+							<li><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Check page errors and accessibility
+							<p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/wave_toolbar.gif" alt="WAVE Toolbar"><br />
+								Use the WAVE Toolbar</p>
+							
+							<ul>
+								<li>In the WAVE Toolbar, click on the <strong class="red">red button</strong><img src="/connexion/webadmin/qa/images/wave-red.gif" alt="Red button" style="margin-bottom: 8px; vertical-align: text-top;"> <code>Errors, Features and Alerts</code>.</li>
+								<li>Correct any errors and restart this step until WAVE has detected no accessibility errors.</li>								
+							</ul></li>
+						
+							<li><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Use the W3C Validator
+							<ul>
+								<li>View the page&rsquo;s source code, select ALL and COPY.</li>
+								<li>Go to <a href="http://validator.w3.org/#validate_by_input" target="_blank">http://validator.w3.org/check</a> and select the Validate by Direct Input tab.</li>								
+								<li>PASTE into the Direct input field and SUBMIT.</li>								
+								<li>
+									Correct any errors and restart validation. Repeat this step until you get this message:
+									<p class="alignCenter"><img src="images/qa_val_pass.gif" alt="W3C Validation Pass Message" /></p>
+								</li>
+							</ul></li></ol>
+						</div>
+					</div>
+					
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							
+							<p><a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#ensure-compat-parses" target="_blank">4.1.1 Parsing</a></p>
+							<div class="qa-Crit">								
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G134" target="_blank">G134 Validating Web pages</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G192" target="_blank">G192 Fully conforming to specifications</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H74" target="_blank">H74 Ensuring that opening and closing tags are used according to specification</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H75" target="_blank">H75 Ensuring that Web pages are well-formed</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H88" target="_blank">H88 Using HTML according to spec</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H93" target="_blank">H93 Ensuring that <code>id</code> attributes are unique on a Web page</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H94" target="_blank">H94 Ensuring that elements do not contain duplicate attributes</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F70" target="_blank">F70 Failure due to incorrect use of start and end tags or attribute markup</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F77" target="_blank">F77 Failure due to duplicate values of type ID</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+                </details>    
+     
+				<details>
+					<summary>2. Ensure all pages have descriptive title and proper headings structure</summary>					
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">	
+                        	<ol>
+                            	<li><p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Ensure title in the browser, Metadata title and H1 describe the content/purpose of the page.</p>
+                                <p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/qa-012.jpg" alt="Page Title"><br />
+								Page Source: Title / Main Header</p>
+                				<p>In the Source Code or with the help of the Toolbars: check the Title of the page, and inspect H1 and Metadata Title.</p>
+                                </li>
+                                <li><p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Ensure that heading stucture are in sequence [H1 to H6], are informative and avoid duplication unless the structure provides adequate differentiation between them.</p>
+                                <p>Two tools are available:</p>
+                                <ol>
+                                    <li class="list-upper-alpha"><strong>Web Dev Toolbar:</strong> Outline &gt; Outline Headings (Displays header Divs)
+                                    <p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/qa-013.jpg" alt="Web Dev Headers Display"><br />
+                                    Web Dev Toolbar &gt; Outline &gt; Outline Headings </p></li>
+                                    <li class="list-upper-alpha"><strong>WAVE Toolbar:</strong> Outline (Displays header sequence)
+                                    <p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/qa-014.jpg" alt="WAVE Toolbar&rsquo; Outline"><br />
+                                    WAVE Toolbar &gt; Outline</p></li>
+                                </ol></li>
+                            </ol>    				                              
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" target="_blank">2.4.2 Page Titled</a></p>
+							<div class="qa-Crit">
+							<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H25" target="_blank">H25 Providing a title using the title element</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G88" target="_blank">G88 Providing descriptive titles for Web pages</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F25" target="_blank">F25 Failure  due to the title of a Web page not identifying the contents</a></li>
+								</ul>
+							</div>
+                            
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html" target="_blank">2.4.6 Headings and Labels</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/G130" target="_blank">G130 Providing descriptive headings</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/G141" target="_blank">G141 Organizing a page using headings</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/H42" target="_blank">H42 Using h1-h6 to identify headings</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+                            
+                            <!--<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">1.3.1 Info and Relationships</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/G115" target="_blank">G115 Using semantic elements to mark up structure</a></li>	
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/H49" target="_blank">H49 Using semantic markup to mark emphasized or special text</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/G117" target="_blank">G117: Using text to convey information that is conveyed by variations in presentation of text</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/G140" target="_blank">G140: Separating information and structure from presentation to enable different presentations</a></li>							
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F2" target="_blank">F2 Failure due to using changes in text presentation to convey information without using the appropriate markup or text</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F17" target="_blank">F17 Failure due to insufficient information in DOM to determine one-to-one relationships (e.g., between labels with same id) in HTML</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F33" target="_blank">F33 Failure due to using white space characters to create multiple columns in plain text content</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F34" target="_blank">F34 Failure due to using white space characters to format tables in plain text content</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F42" target="_blank">F42 Failure due to using scripting events to emulate links in a way that is not programmatically determinable</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F43" target="_blank">F43 Failure due to using structural markup in a way that does not represent relationships in the content</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F46" target="_blank">F46 Failure due to using th elements, caption elements, or non-empty summary attributes in layout tables</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F48" target="_blank">F48 Failure due to using the pre element to markup tabular information</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F62" target="_blank">F62 Failure due to insufficient information in DOM to determine specific relationships in XML</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F68" target="_blank">F68 Failure due to the association of label and user interface controls not being programmatically determinable</a></li>
+									<li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F87" target="_blank">F87 Failure due to inserting non-decorative content by using :before and :after pseudo-elements and the &lsquo;content&rsquo; property in CSS</a></li>
+								</ul>
+							</div>-->
+                            
+						</div>
+					</div>
+				</details>
+			
+				<details>
+					<summary>3. Ensure there is no loss of content or functionality when the text is resized to 200%</summary>					
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Pages need to be able to be resized text up to 200% without loss of content or functionality. In respective browsers, increase font size (not zooming of the page, just text). This also applies to text-based form controls (e.g. input boxes).</p>
+							<ul class="list-upper-alpha">
+								<li><strong>Firefox (2 steps):</strong> 
+									<ol>
+										<li>View &gt; Zoom &gt; Zoom Text Only</li>
+										<li>View &gt; Zoom &gt; Zoom in (do it twice); Increase font size  (200%)
+                                        </li>
+									</ol>								
+								</li>
+								<li><strong>IE:</strong> View &gt; Text Size &gt; Largest <br>
+                                <img src="/connexion/webadmin/qa/images/qa-018.jpg" alt="Text size in IE" /> </li>
+							</ul>
+                            
+                            <p><strong>Checking text-based form controls:</strong></p>
+                            <ol>
+                                <li>Enter some text into text-based form controls that receive user entered text.</li>
+                                <li>Increase the text size of the content by 200%.</li>
+                                <li>Check that the text in text-based form controls has increased by 200%.</li>
+                            </ol>
+                            
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html" target="_blank">1.4.4 Resize text</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G179" target="_blank">G179 Ensuring that there is no loss of content or functionality when the text resizes and text containers do not change their width</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F69" target="_blank">F69 Failure when resizing visually rendered text up to 200 percent causes the text, image or controls to be clipped, truncated or obscured</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F80" target="_blank">F80 Failure when text-based form controls do not resize when visually rendered text is resized up to 200%</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</details>
+				
+                <details>
+					<summary>4. Ensure there is no loss of functionality or information when CSS is disabled</summary>					
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Turn off all CSS. You will see the sequence of template elements (e.g. navigation, skip nav) and the content. Make sure that the content has a meaningful sequence (e.g. CSS floats and sequence). If any layout design still visible or missing content review code.</p>
+                            <p>Two tools available: </p>
+							
+                            <ol class="list-upper-alpha">
+								<li><strong>Web Dev Toolbar:</strong> CSS &gt; Disable Styles &gt; All Styles
+                                <p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/qa-015.jpg" alt="Disable CSS" /><br />
+								Web Dev Toolbar &gt; CSS &gt; Disable Styles &gt; All Styles</p></li>
+								<li><strong>WAVE Toolbar:</strong> Disable Styles</li>
+							</ol> 
+                         <p><strong>CSS :before and :after pseudo-elements and the 'content' check:</strong></p>
+                        <ol>
+                        	<li>Examine all content inserted through use of the :before and :after pseudo-elements and the <code>content</code> property</li>
+                            <li>Verify that the content is decorative.</li>
+                            <li>If the inserted content is not decorative, check that the information is provided to assistive technologies and is also available when CSS is turned off.</li>
+                        </ol> 
+						</div>   
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+ 
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">1.3.1 Info and Relationships</a> * more criterias are in:</p>
+                            <ul>
+                            	<li>step 7 - Ensure the title attribute is used only when needed</li>
+                                <li>step 11 - Ensure that tables are properly formatted with scopes or headers</li>
+                                <li>step 12 - Ensure that all form elements have labels and error handeling</li>
+                            </ul>
+							<div class="qa-Crit">
+								<h5>Common failures</h5>
+								<ul>
+                                	<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F3" target="_blank">F3 Failure due to using CSS to include images that convey important information</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F2" target="_blank">F2 Failure due to using changes in text presentation to convey information without using the appropriate markup or text</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F43" target="_blank">F43 Failure due to using structural markup in a way that does not represent relationships in the content</a></li>	
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F87" target="_blank">F87 Failure due to inserting non-decorative content by using :before and :after pseudo-elements and the 'content' property in CSS</a></li>		                                																
+								</ul>
+							</div>
+   
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html" target="_blank">1.3.2 Meaningful Sequence</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G57" target="_blank">G57 Ordering the content in a meaningful sequence</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C6" target="_blank">C6 Positioning content based on structural markup</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C8" target="_blank">C8 Using CSS letter-spacing to control spacing within a word</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F32" target="_blank">F32 Failure due to using white space characters to control spacing within a word</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F33" target="_blank">F33 Failure due to using white space characters to create multiple columns in plain text content</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F34" target="_blank">F34 Failure due to using white space characters to format tables in plain text content</a></li>															
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F1" target="_blank">F1 Failure due to changing the meaning of content by positioning information with CSS</a></li>
+								</ul>
+							</div>
+                            
+						</div>
+					</div>
+				</details>
+   
+				<details>
+					<summary>5. Ensure all content is keyboard accessible and there is no keyboard trap</summary>					
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">							
+							<p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> You need to ensure that you can navigate the page using only the keyboard:</p>
+							<ol>
+								<li>Identify all functionality on the content.</li>
+								<li>Ensure focus is visible</li>
+								<li>Check that all functionality can be accessed using only the keyboard.</li>
+								<li>Ensure focus order preserves meaning (by using the TAB key)</li>
+								<li>Check to see that keyboard focus is not trapped in any of the content.									
+									<ol class="lower-alpha">
+										<li>If keyboard focus appears to be trapped in any of the content, check that help information is available explaining how to exit the content and can be accessed via the keyboard.</li>
+									</ol>
+								</li>
+                                <li>Check to see if there are any action taken on focus of an element. (e.g. Submiting the form on focus)</li>
+								<li>For each instance of links and form elements in the source code, check that the name, value, and state are specified as indicated in the table of H91</li>
+							</ol>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html" target="_blank">2.1.1 Keyboard Accessible</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H91" target="_blank">H91 Using HTML form controls and links</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G202" target="_blank">G202 Ensuring keyboard control for all functionality</a>
+</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F54" target="_blank">F54 Failure due to using only pointing-device-specific event handlers (including gesture) for a function</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F55" target="_blank">F55 Failure due to using script to remove focus when focus is received
+</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F42" target="_blank">F42 Failure due to using scripting events to emulate links in a way that is not programmatically determinable</a></li>									
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html" target="_blank">2.1.2 No Keyboard Trap</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G21" target="_blank">G21 Ensuring that users are not trapped in content</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F10" target="_blank">F10 Failure due to combining multiple content formats in a way that traps users inside one format type </a></li>									
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html" target="_blank">2.4.3 Focus Order</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G59" target="_blank">G59 Placing the interactive elements in an order that follows sequences and relationships within the content</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H4" target="_blank">H4 Creating a logical tab order through links, form controls, and objects</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F44" target="_blank">F44 Failure due to using tabindex to create a tab order that does not preserve meaning and operability</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F85" target="_blank">F85 Failure due to using dialogs or menus that are not adjacent to their trigger control in the sequential navigation order</a></li>
+								</ul>
+							</div>	
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html" target="_blank">2.4.7 Focus Visible</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G149" target="_blank">G149 Using user interface components that are highlighted by the user agent when they receive focus</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C15" target="_blank">C15 Using CSS to change the presentation of a user interface component when it receives focus</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F55" target="_blank">F55 Failure due to using script to remove focus when focus is received</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F78" target="_blank">F78 Failure due to styling element outlines and borders in a way that removes or renders non-visible the visual focus indicator</a></li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html" target="_blank">3.2.1 On Focus</a></p>
+							<div class="qa-Crit">
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F55" target="_blank">F55 Failure due to using script to remove focus when focus is received</a></li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html" target="_blank">3.2.2 On Input</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G80" target="_blank">G80 Providing a submit button to initiate a change of context</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H32" target="_blank">H32 Providing submit buttons</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F36" target="_blank">F36 Failure due to automatically submitting a form and presenting new content without prior warning when the last field in the form is given a value</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F76" target="_blank">F76 Failure due to providing instruction material about the change of context by change of setting in a user interface element at a location that users may bypass</a></li>
+								</ul>
+							</div>			
+						</div>
+					</div>
+				</details>
+				
+                <details>
+					<summary>6. Ensure all images has an alt, proper usage of images of text and contrast ratio</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+						<ol>
+							<li><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Manually determine the type of image, then inspect the Alt using the Web Dev Toolbar.
+                            <p><strong>Web Dev Toolbar:</strong> Images > Display Alt Attributes</p>
+                            <p class="alignCenter"><img src="images/qa-alt1.gif" alt="Display Alt Attributes" /></p>                           
+							<ul>
+								<li><strong>Decorative</strong>
+                                	<ul>
+                                    	<li>The Alt text is empty: alt="". <em>An image that does not require a description</em>. Visual enhancements, decorations or embellishments that provide no function or information beyond aesthetics to users who can view the images. They have no meaning in themselves and do not provide page content.</li>
+                                    </ul></li>
+								<li><strong>Simple</strong><ul>
+                                    	<li>Standard image where the <em>Alt is a short text description</em>. They are images that are important to the content and convey information.</li>
+                                    </ul></li>
+                                <li><strong>Image of text</strong><ul>
+                                    	<li>Unless the image is a marketing item, can&rsquo;t use images of text. <strong>Note:</strong> Criteria [1.4.5 Images of Text] does not apply to marketing images.</li>
+                                    </ul></li>    
+								<li><strong>Complex</strong><ul>
+                                    	<li>
+                                        A form of <em>long description must be provided, along with an Alt</em>. If a (complete) description precedes or follows in the content, the Alt must specify accordingly. If no description exists, one must be added below the image, using the expand-collapse technique: descriptive text or data table. See CIC Web standards for full details on method.
+                                        <p class="alignCenter" style="margin-right:20px;"><img src="images/qa-longdesc1.jpg" class="float-left" alt="Complex image" /></p><p  class="float-left"><strong>Expand/Hide:</strong><br /><img src="images/qa-longdesc2.jpg" alt="Complex image long description"/></p></li>
+                                    </ul>
+									<div class="clearLeft"></div>
+								</li>
+							</ul></li>
+                                             
+                            <li><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Determine the contrast ratio between text and background
+                            <p><strong>Use the Color analyser tool</strong> and ensure that it passes level AA of contrast ratio.</p>
+                            <p class="alignCenter"><img src="images/color-contrast-tool.gif" alt="color contrast tool"/></p>
+							<p><strong>Note:</strong> Criteria &ldquo;1.4.3 Contrast (Minimum)&rdquo; does not apply to logos.</p>		
+							</li></ol>			
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#text-equiv-all" target="_blank">1.1.1 Non-text Content</a> * more criterias are in:</p>
+                            <ul>
+                            	<li>step 7 - Ensure the title attribute is used only when needed</li>
+                            </ul>
+                            
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li>If a short description can serve the same purpose and present the same information as the non-text content
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G94" target="_blank">G94 Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a> (using <strong>short</strong> text technique)</li>
+										</ul>
+									</li>
+									<li>If a short description can not serve the same purpose and present the same information as the non-text content (e.g., a chart or diagram)
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G95" target="_blank">G95 Providing short text alternatives that provide a brief description of the non-text content</a> (using <strong>short</strong> text technique)</li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G92" target="_blank">G92 Providing long description for non-text content that serves the same purpose and presents the same information</a> (using <strong>long</strong> text technique)</li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G74" target="_blank">G74 Providing a long description in text near the non-text content, with a reference to the location of the long description in the short description</a> (using <strong>long</strong> text technique)</li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G73" target="_blank">G73 Providing a long description in another location with a link to it that is immediately adjacent to the non-text content</a> (using <strong>long</strong> text technique)</li>
+										</ul>
+									</li>									
+									<li>If non-text content is time-based media (including live video-only and live audio-only); a test or exercise that would be invalid if presented in text; or primarily intended to create a specific sensory experience
+										<ul>
+											<li>Providing a descriptive label using a short text alternative technique</li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G68" target="_blank">G68 Providing a descriptive labelshort text alternative that describes the purpose of live audio-only and live video-only conten</a> (using short text technique)</li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G100" target="_blank">G100 Providing a short text alternative which is the accepted name or a descriptive name of the non-text content</a> (using short text technique)</li>
+										</ul>
+									</li>
+									<li><strong>Short text alternative techniques</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H2" target="_blank">H2 Combining adjacent image and text links for the same resource</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H37" target="_blank">H37 Using alt attributes on img elements</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G196" target="_blank">G196 Using a text alternative on one item within a group of images that describes all items in the group</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H53" target="_blank">H53 Using the body of the object element</a></li>
+										</ul>
+									</li>
+									<li><strong>Long text alternative techniques</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H45" target="_blank">H45 Using longdesc</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H53" target="_blank">H53 Using the body of the object element</a></li>
+										</ul>
+									</li>									
+								</ul>
+								
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F30" target="_blank">F30 Failure due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F20" target="_blank">F20 Failure due to not updating text alternatives when changes to non-text content occur</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F39" target="_blank">F39 Failure due to providing a text alternative that is not null (e.g., alt=&quot;spacer&quot; or alt=&quot;image&quot;) for images that should be ignored by assistive technology</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F38" target="_blank">F38 Failure due to omitting the alt-attribute for non-text content used for decorative purposes only in HTML</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F71" target="_blank">F71 Failure due to using text look-alikes to represent text without providing a text alternative</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F72" target="_blank">F72 Failure due to using ASCII art without providing a text alternative</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F65" target="_blank">F65 Failure due to omitting the alt attribute on img elements, area elements, and input elements of type &ldquo;image&rdquo;</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F32" target="_blank">F67 Failure due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F32" target="_blank">F13 Failure due to having a text alternative that does not include information that is conveyed by color differences in the image</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F82" target="_blank">F82 Failure to using null alt on an image where the image is the only content in a link</a></li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation" target="_blank">1.4.5: Images of Text </a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C22" target="_blank">C22 Using CSS to control visual presentation of text</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/C30" target="_blank">C30 Using CSS to replace text with images of text and providing user interface controls to switch</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G140" target="_blank">G140 Separating information and structure from presentation to enable different presentations</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_blank">1.4.3: Contrast (Minimum)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li>Text is less than 18 point if not bold and less than 14 point if bold
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G18" target="_blank">G18 Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G148" target="_blank">G148 Not specifying background color, not specifying text color, and not using technology features that change those defaults</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G174" target="_blank">G174 Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast</a></li>
+										</ul>
+									</li>
+									<li>Text is at least 18 point if not bold and at least 14 point if bold
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G145" target="_blank">G145 Ensuring that a contrast ratio of at least 3:1 exists between text (and images of text) and background behind the text</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G148" target="_blank">G148 Not specifying background color, not specifying text color, and not using technology features that change those defaults</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G174" target="_blank">G174 Providing a control with a sufficient contrast ratio that allows users to switch to a presentation that uses sufficient contrast</a></li>
+										</ul>
+									</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><span class="badge-intro"><span class="wb-icon-gear"></span>WET Template</span> <a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F24" target="_blank">F24 Failure due to specifying foreground colors without specifying background colors or vice versa</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F83" target="_blank">F83 Failure due to using background images that do not provide sufficient contrast with foreground text (or images of text)</a></li>
+								</ul>
+							</div>
+                            <p><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" target="_blank">4.1.2 Name, Role, Value</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G108" target="_blank">G108 Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F89" target="_blank">F89 Failure due to using null alt on an image where the image is the only content in a link</a></li>
+								</ul>
+							</div>
+                            
+						</div>
+					</div>
+				</details>				
+				
+				<details>
+					<summary>7. Ensure the title attribute is used only when needed</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Check the <code>Title</code> attribute on elements to avoid echoing, duplication and retain meaningful text.</p>
+                            <ul>
+                            	<li>No title on images that AT should ignore</li>
+                                <li>Title on links only if adding additional information</li>
+                                <li>Title required for IFRAME and FRAME elements</li>
+                                <li>Title on form controls only when the label element cannot be used</li>
+                            </ul>
+                            <p><strong>Web Dev Toolbar:</strong> Information &gt; Display Title Attributes.</p>
+                			<p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/qa-016.gif" alt="Display Title Attributes" /><br />
+                      			Information &gt; Display Title Attributes</p>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							
+                            <p><a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#text-equiv-all" target="_blank">1.1.1 Non-text Content</a> * more criterias are in:</p>
+                            <ul>
+                            	<li>step 6 - Ensure all images has an alt, proper usage of images of text and contrast ratio</li>
+                            </ul>
+                            
+                            <div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/H67">H67 Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>
+                            
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">1.3.1 Info and Relationships</a> * more criterias are in:</p>
+                            <ul>
+                            	<li>step 4 - Ensure there is no loss of functionality or information when CSS is disabled</li>
+                                <li>step 11 - Ensure that tables are properly formatted with scopes or headers</li>
+                                <li>step 12 - Ensure that all form elements have labels and error handeling</li>
+                            </ul>
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" target="_blank">3.3.2 Labels or Instructions</a></p>
+                            
+                            <div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/H65">H65 Using the title attribute to identify form controls when the label element cannot be used</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>
+    						
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html" target="_blank">2.4.4 Link Purpose (In Context)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/H33">H33 Supplementing link text with the title attribute</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>
+                            
+							<p><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" target="_blank">4.1.2 Name, Role, Value</a> <strong>AND</strong> <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html">2.4.1 Bypass Blocks</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G108" target="_blank">G108 Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes</a></li>
+                                    <li><a href="http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/H64">H64 Using the title attribute of the frame and iframe elements</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>
+						</div>
+					</div>
+				</details>
+ 
+				<!-- <details>
+					<summary>9. Ensure abbreviations are properly coded</summary>
+                    <div class="module-note">
+                        <h3>Note</h3>					
+                            <p>3.1.4 Abbreviation is a level AAA and we recommend to only apply for landing pages unless advised. If you are required to add abbreviation please follow the below.</p>
+                    </div>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+                        <div class="module">					
+							<p>In Firefox, you can display <code>abbr</code> with the Web Dev Toolbar: Information &gt; Display Abbreviations. The abbreviations / acronyms should be wrapped in the <code>abbr</code> tag. You only really need to populate the &quot;title&quot; attribute if the occurrence is directly <em>Government related</em> (e.g. <abbr title="Citizenship and Immigration Canada">CIC</abbr>, <abbr title="Royal Canadian Mounted Police">RCMP</abbr>, etc). You can populate some common elements such as <abbr title="Portable Document Format">PDF</abbr> / <abbr title="Kylobyte">KB</abbr> / <abbr title="Megabyte">MB</abbr> as well for user guidance.</p>
+							<p><code><strong>&lt;abbr&gt;</strong></code><strong> in Tables:</strong> </p>
+							<p>In HTML5, the <code>&lt;abbr&gt;</code> as an attibute of TH and TD is <strong>obsolete</strong> [<a href="http://www.w3.org/TR/html5-diff/#obsolete-elements">Source: W3.org</a>]. As <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/obsolete.html#non-conforming-features">a solution</a>, you could either use the accronym without markup, e.g. &quot;CIC&quot; (no abbr), or W3 suggests: <q><em>Use text that begins in an unambiguous and terse manner, and include any more elaborate text after that</em>.</q> Note that the <code>&lt;abbr&gt;</code> in the table will probably still validate at the moment. For any NEW pages or main landing pages, do not code the <code>&lt;abbr&gt;</code> in tables (td/th).</p>
+                            </div>
+					</div>              
+				</details> --> 
+                 
+				<details>
+					<summary>8. Ensure that changes of language in the text are coded</summary>					
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+                        
+						<div class="module">
+                        <p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Scan the document content for changes of language.</p>
+						<p>Reference <a href="http://www.w3schools.com/tags/ref_language_codes.asp">Language codes</a> for changes to the natural <em>language of the page</em>. (<code>lang="en"</code>)</p>
+						<p><strong>Note:</strong> you only need to use it on phrases and expressions, not on names, cities, etc. Screen readers scan context in phrases and understand familiar expressions (e.g. <em>d&eacute;j&agrave;-vu</em>, etc).</p>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html" target="_blank">3.1.2 Language of Parts</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H58" target="_blank">H58 Using language attributes to identify changes in the human language</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</details>
+				
+				<details>
+					<summary>9. Ensure that visuals (such as text colour) aren&rsquo;t relied on to distinguish items</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Make sure semantic markup is used appropriately (e.g. <code>strong</code> + <strong class="red">color</strong> or text hint.) Instructions should not rely upon shape, size, or visual location (e.g., &ldquo;<em>Click the square icon to continue</em>&rdquo; or &ldquo;<em>Instructions are in the right-hand column</em>&rdquo;). Instructions should not rely upon sound (e.g., &ldquo;<em>A beeping sound indicates you may continue.</em>&rdquo;). Error handeling is covered by WET.</p>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html" target="_blank">1.4.1 Use of Color</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G14" target="_blank">G14 Ensuring that information conveyed by color differences is also available in text</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H92" target="_blank">H92 Including a text cue for colored form control labels</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G182" target="_blank">G182 Ensuring that additional visual cues are available when text color differences are used to convey information</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G183" target="_blank">G183 Using a contrast ratio of 3:1 with surrounding text and providing additional visual cues on focus for links or controls where color alone is used to identify them</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G111" target="_blank">G111 Using color and pattern</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G14" target="_blank">G14 Ensuring that information conveyed by color differences is also available in text</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F13" target="_blank">F13 Failure due to having a text alternative that does not include information that is conveyed by color differences in the image</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F73" target="_blank">F73 Failure due to creating links that are not visually evident without color vision</a> <span class="badge-intro"><span class="wb-icon-gear"></span>WET Template</span></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F81" target="_blank">F81 Failure due to identifying required or error fields using color differences only</a> <span class="badge-intro"><span class="wb-icon-gear"></span>WET Feature</span></li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html" target="_blank">1.3.3 Sensory Characteristics</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G96" target="_blank">G96: Providing textual identification of items that otherwise rely only on sensory information to be understood</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F14" target="_blank">F14 Failure due to identifying content only by its shape or location</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F26" target="_blank">F26 Failure due to using a graphical symbol alone to convey information</a></li>								
+								</ul>
+							</div>
+							
+				
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html" target="_blank">3.2.4 Consistent Identification</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G197" target="_blank">G197: Using labels, names, and text alternatives consistently for content that has the same functionality</a> AND following the sufficient techniques for <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html#text-equiv-all-techniques-head" target="_blank">Success Criterion 1.1.1</a> and sufficient techniques for <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html#ensure-compat-rsv-techniques-head" target="_blank">Success Criterion 4.1.2</a> for providing labels, names, and text alternatives.</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F31" target="_blank">F31 Failure due to using two different labels for the same function on different Web pages within a set of Web pages</a></li>			
+								</ul>
+							</div>
+							
+							
+						</div>
+					</div>
+				</details>
+				
+				<details>
+					<summary>10. Ensure links are functional and clear</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span></p>
+                            <ol>                          	
+                                <li>Locate content needed to understand how link text describes the purpose of the link.</li>
+                                <li>Check whether the content is contained in the same sentence, paragraph, list item, or table cell, or in the preceding heading. </li>
+                                <li>No broken links. e.g. a link to Transport Canada should not point to the Splash page, but rather to the index in the current natural language of your page.</li>
+                                <li>Alternative format require the file size and type embeded in the link. e.g. title [100kb, pdf]</li> 		                            
+                                </ol>
+                            
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html" target="_blank">2.4.4 Link Purpose (In Context)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/H2" target="_blank">H2 Combining adjacent image and text links for the same resource</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F63" target="_blank">F63 Failure due to providing link context only in content that is not related to the link</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F19" target="_blank">F19 Failure of Conformance Requirement 1 due to not providing a method for the user to find the alternative conforming version of a non-conforming Web page</a></li>
+								</ul>
+							</div>	
+						</div>
+					</div>
+				</details>
+                
+                <details>
+					<summary>11. Ensure that tables are coded properly</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+                        <p><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span> Ensure that tables are coded in an accessible way. Also that it make sense when linearize.</p>
+                            <ul>
+                            	<li>Simple table: th/td or scope (col|row|colgroup|rowgroup)</li>
+                                <li>Complex table: Headers and Id&rsquo;s</li>
+                            </ul>
+                            <p><strong>Note:</strong> <a href="http://wet-boew.github.io/wet-boew/demos/opt-cont/tbl-simp-en.html">WET has a table enhancement</a> guide.</p>
+							<p><strong>Web Dev Toolbar:</strong> Miscellaneous > Linearize page (Displays header Divs)</p>
+                            <p class="align-center"><img src="images/qa-tables-1.jpg" alt="linerize page" /></p>
+							<h4>Complex tables</h4>
+							
+								<p>Verify the ID&rsquo;s and headers. The headers should line up according with the table IDs:</p>
+									<ul>
+										<li><strong>Web Dev Toolbar:</strong> Information > Display Id &amp; Class Detail.
+                                        <p class="align-center"><img src="images/qa-tables-2.jpg" alt="table IDs" /></p></li>
+										<li><strong>Web Dev Toolbar:</strong> Information > Display table information.
+                                        <p class="align-center"><img src="images/qa-tables-3.jpg" alt="table headers" /></p></li>
+									</ul>
+						</div>
+					</div>
+                    
+                    <div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							
+                            
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" target="_blank">1.3.1 Info and Relationships</a> * more criterias are in:</p>
+                            <ul>
+                            	<li>step 4 - Ensure there is no loss of functionality or information when CSS is disabled</li>
+                                <li>step 7 - Ensure the title attribute is used only when needed</li>
+                                <li>step 12 - Ensure that all form elements have labels and error handeling</li>
+                            </ul>                            
+							<div class="qa-Crit">
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F46" target="_blank">F46 Failure due to using th elements, caption elements, or non-empty summary attributes in layout tables</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F48" target="_blank">F48 Failure due to using the pre element to markup tabular information</a></li>		
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F49" target="_blank">F49 Failure due to using an HTML layout table that does not make sense when linearized</a></li>	
+                                    <li><a href="http://www.w3.org/TR/2010/NOTE-WCAG20-TECHS-20101014/F34" target="_blank">F34 Failure due to using white space characters to format tables in plain text content</a></li>															
+								</ul>
+							</div>
+                            
+						</div>
+					</div>
+                    
+				</details>
+ 
+				<details>
+					<summary>12. Ensure that all form elements have labels and error handeling</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+                        <p><span class="badge-intro"><span class="wb-icon-toolbox"></span> Tool</span></p>
+							<ul>
+                            	<li>Ensure that every inputs have a label associated. Use WAV toolbar to check that every form field has a label</li>
+                                <li>Ensure that you utilize WET form validation feature</li>
+                            </ul>
+							<p class="smallfont alignCenter"><img src="/connexion/webadmin/qa/images/wave_toolbar.gif" alt="WAVE Toolbar"><br />
+								Use the WAVE Toolbar</p>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-identified.html" target="_blank">3.3.1 Error Identification</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><strong>If the form field is mandatory:</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G83 Providing text descriptions to identify required fields that were not completed</a></li>
+										</ul>
+									</li>
+									<li><strong>If the information is required to be in a specific format:</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G84" target="_blank">G84 Providing a text description when the user provides information that is not in the list of allowed values</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G85" target="_blank">G85 Providing a text description when user input falls outside the required format or values</a></li>
+										</ul>
+									</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+							
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" target="_blank">3.3.2 Labels or Instructions</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G131" target="_blank">G131 Providing descriptive labels</a> <strong>AND</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G89 Providing expected data format and example</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G184 Providing text instructions at the beginning of a form or set of fields that describes the necessary input</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G162 Positioning labels to maximize predictability of relationships</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G83 Providing text descriptions to identify required fields that were not completed</a></li>
+										</ul>
+									</li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G131" target="_blank">G167: Using an adjacent button to label the purpose of a field</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F82" target="_blank">F82 Failure by visually formatting a set of phone number fields but not including a text label</a></li>
+								</ul>
+							</div>
+ 
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-suggestions.html" target="_blank">3.3.3 Error Suggestion</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><strong>If a mandatory field contains no information:</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G83" target="_blank">G83 Providing text descriptions to identify required fields that were not completed</a></li>
+										</ul>
+									</li>
+									<li><strong>If information for a field is required to be in a specific data format:</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G85" target="_blank">G85 Providing a text description when user input falls outside the required format or values</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G177" target="_blank">G177 Providing suggested correction text</a></li>
+										</ul>
+									</li>
+									<li><strong>Information provided by the user is required to be one of a limited set of values:</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G84" target="_blank">G84 Providing a text description when the user provides information that is not in the list of allowed values</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G177" target="_blank">G177 Providing suggested correction text</a></li>
+										</ul>
+									</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+							
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible-all.html" target="_blank">3.3.4 Error Prevention (Legal, Financial, Data)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<p class="instructions"><strong>Instructions:</strong> Select the situation below that matches your content. Each situation includes techniques or combinations of techniques that are known and documented to be sufficient for that situation. 
+</p><div><h4><a id="minimize-error-reversible-situation-59-head" name="minimize-error-reversible-situation-59-head"> </a>Situation A: If an application causes a legal transaction to occur, such as making a purchase or submitting an income tax return:</h4>
+<ol class="enumar"><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G164">G164: Providing a stated period oftime after submission of the form when the order canwithin which an online request (or transaction) may be updatedamended or canceled by the user after making the request</a>
+									</p></li><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G98">G98: Providing the ability for the user to review and correct answers before submitting</a>
+									</p></li><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G155">G155: Providing a checkbox in addition to a submit button</a>
+									</p></li></ol></div><div><h4><a id="minimize-error-reversible-situation-60-head" name="minimize-error-reversible-situation-60-head"> </a>Situation B: If an action causes information to be deleted:</h4>
+<ol class="enumar"><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G99">G99: Providing the ability to recover deleted information</a>
+									</p></li><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G168">G168: Requesting confirmation to continue with selected action</a>
+									</p></li><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G155">G155: Providing a checkbox in addition to a submit button</a>
+									</p></li></ol></div><div><h4><a id="minimize-error-reversible-situation-61-head" name="minimize-error-reversible-situation-61-head"> </a>Situation C: If the Web page includes a testing application:</h4>
+<ol class="enumar"><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G98">G98: Providing the ability for the user to review and correct answers before submitting</a>
+									</p></li><li><p>
+										<a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G168">G168: Requesting confirmation to continue with selected action</a>
+									</p></li></ol>
+                                <h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>
+                            </div>
+                            
+                            <p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible-all.html" target="_blank">1.3.1 Info and Relationships</a></p>
+							<div class="qa-Crit">
+								
+                                <h5>Common failures</h5>
+                                	<ul>
+                                    	<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F17.html">F17 Failure of Success Criterion 1.3.1 and 4.1.1 due to insufficient information in DOM to determine one-to-one relationships (e.g., between labels with same id) in HTML</a></li>
+                                        <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F68.html">F68 Failure of Success Criterion 1.3.1 and 4.1.1 due to the association of label and user interface controls not being programmatically determinable</a></li>
+                                    </ul>
+							</div>
+                            
+                            <p><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" target="_blank">4.1.2 Name, Role, Value</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G108" target="_blank">G108 Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F86" target="_blank">F86 Failure due to not providing names for each part of a multi-part form field, such as a US telephone number</a></li>
+								</ul>
+							</div>
+ 
+						</div>
+					</div>
+				</details>
+ 
+				<details>
+					<summary>13. Ensure that video and audio are supported with captions, transcripts or alternate formats. Also use the proper multimedia player.</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<ul>
+                            	<li><span class="badge-intro"><span class="wb-icon-gear"></span>WET Feature</span> Ensure that you utilize WET multimedia feature for video and audio files</li>
+                                <li><span class="badge-intro"><span class="wb-icon-gear"></span>WET Feature</span> Ensure that you utilize WET tab interface for any moving and scrolling content. e.g. Flipper</li>
+                            	<li><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Ensure that every video has a appropriate caption:
+                                	<ol>
+                                    	<li>View the material with captioning turned on.</li>
+                                        <li>Check that all dialogue is accompanied by a caption.</li>
+                                        <li>Check that all important sounds are captioned.</li>
+                                    </ol></li>
+                                <li><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Ensure that every video has a appropriate transcript</li>
+                                <li><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span> Check that there is a way in a Web page to turn off any sound/animation that plays automatically for more than three seconds.</li>                               
+                                
+                            </ul>
+						</div>
+					</div>
+					<div class="module-relatedInfo">
+						<h3>Related Information</h3>
+						<div class="module">
+							<h4>Sucess Criteria</h4>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html#media-equiv-av-only-alt-intent-head" target="_blank">1.2.1 Audio-only and Video-only (Prerecorded)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G158" target="_blank">G158: Providing an alternative for time-based media for audio-only content</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G159" target="_blank">G159: Providing an alternative for time-based media for video-only content</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G166" target="_blank">G166: Providing audio that describes the important video content and describing it as such</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F30" target="_blank">F30 Failure due to using text alternatives that are not alternatives (e.g., filenames or placeholder text)</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F67" target="_blank">F67 Failure due to providing long descriptions for non-text content that does not serve the same purpose or does not present the same information</a></li>
+								</ul>
+							</div>	
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html" target="_blank">1.2.2 Captions (Prerecorded)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G93" target="_blank">G93 Providing open (always visible) captions</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G87" target="_blank">G87 Providing closed captions</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F8" target="_blank">F8 Failure due to captions omitting some dialogue or important sound effects</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F75" target="_blank">F75 Failure by providing synchronized media without captions when the synchronized media presents more information than is presented on the page</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F74" target="_blank">F74 Failure due to not labeling a synchronized media alternative to text as an alternative</a></li>
+								</ul>
+							</div>	
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc.html" target="_blank">1.2.3 Audio Description or Media Alternative (Prerecorded)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G69" target="_blank">G69: Providing an alternative for time based media</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G78" target="_blank">G78: Providing a second, user-selectable, audio track that includes audio descriptions</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G173" target="_blank">G173: Providing a version of a movie with audio descriptions</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G8" target="_blank">G8: Providing a movie with extended audio descriptions</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+ 
+									<li>No failures currently documented</li>
+								</ul>
+							</div>	
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-real-time-captions.html" target="_blank">1.2.4 Captions (Live)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G69" target="_blank">G69: Providing an alternative for time based media</a> <strong>AND</strong>
+										<ul>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G93" target="_blank">G93: Providing open (always visible) captions 
+ 
+</a></li>
+											<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G87" target="_blank">G87: Providing closed captions</a></li>
+										</ul>
+									</li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html" target="_blank">1.2.5 Audio Description (Prerecorded)</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G78" target="_blank">G78: Providing a second, user-selectable, audio track that includes audio descriptions</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G173" target="_blank">G173: Providing a version of a movie with audio descriptions</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G8" target="_blank">G8: Providing a movie with extended audio descriptions</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html" target="_blank">1.4.2 Audio Control</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G60" target="_blank">G60 Playing a sound that turns off automatically within three seconds</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G170" target="_blank">G170 Providing a control near the beginning of the Web page that turns off sounds that play automatically</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G171" target="_blank">G171 Playing sounds only on user request</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<p>No failures currently documented</p>
+							</div>		
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html" target="_blank">2.2.2 Pause, Stop, Hide</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G4" target="_blank">G4 Allowing the content to be paused and restarted from where it was paused</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G1" target="_blank">G1: Creating content that blinks for less than 5 seconds</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G187" target="_blank">G187 Using a technology to include blinking content that can be turned off via the user agent</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G152" target="_blank">G152 Setting animated gif images to stop blinking after n cycles (within 5 seconds)</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G186" target="_blank">G186 Using a control in the Web page that stops moving, blinking, or auto-updating content</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G191" target="_blank">G191 Providing a link, button, or other mechanism that reloads the page without any blinking content</a></li>
+ 
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F16" target="_blank">F16 Failure due to including scrolling content where movement is not essential to the activity without also including a mechanism to pause and restart the content</a></li>
+								</ul>
+							</div>
+							<p><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html" target="_blank">2.3.1 Three Flashes or Below Threshold</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G19" target="_blank">G19 Ensuring that no component of the content flashes more than three times in any 1-second period</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G176" target="_blank">G176 Keeping the flashing area small enough</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G15" target="_blank">G15 Using a tool to ensure that content does not violate the general flash threshold or red flash threshold</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul class="noBullet">
+									<li>No failures currently documented</li>		
+								</ul>
+							</div>			
+						</div>
+					</div>
+				</details>
+				
+                <details>
+					<summary>14. Ensure proper redirects are used &amp; opening new window</summary>
+					<div class="module-instructions">
+                    <h3>Instructions</h3>
+                    	<div class="module">
+                        <p><span class="badge-new"><span class="wb-icon-user"></span> Manual check</span></p>
+							<ul>
+                            	<li>Check that the page does not redirect after a time-out.</li>
+                                <li>For each meta redirect ensure that there is no time limit. Check if it contains the attribute http-equiv with value "refresh" (case-insensitive) and the content attribute with a number (representing seconds) greater than 0.</li>
+                                <li>Check for meta refresh with a time-out</li>
+                                <li>Check for new window on page load and ensure that there is prior warning for links openning new window.</li>
+                            </ul>							
+						</div>
+                        
+						<div class="module">
+							<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F40.html" target="_blank">F40 Failure of Success Criterion 2.2.1 and 2.2.4 due to using meta redirect with a time limit</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F41.html" target="_blank">F41 Failure of Success Criterion 2.2.1, 2.2.4, and 3.2.5 due to using meta refresh with a time-out</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F58.html" target="_blank">F58 Failure of Success Criterion 2.2.1 due to using server-side techniques to automatically redirect pages after a time-out</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F52" target="_blank">F52 Failure due to opening a new window as soon as a new page is loaded</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F37" target="_blank">F37 Failure due to launching a new window without prior warning when the status of a radio button, check box or select list is changed</a></li>
+								</ul>
+						</div>
+					</div>
+				</details>
+				
+				<details>
+					<summary>98. Ensure that the site template&rsquo;s integrity wasn&rsquo;t affected</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p>The following criteria are covered by the template:</p>
+							<ul>
+								<li><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html">Success Criterion for 2.4.1 Bypass Blocks</a></li>
+								<li><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-mult-loc.html">Success Criterion for 2.4.5 Multiple Ways</a></li>
+                                <li><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-doc-lang-id.html#meaning-doc-lang-id-techniques-head">Success Criterion for 3.1.1 Language of Page</a></li>
+								<li><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-locations.html">Success Criterion for 3.2.3 Consistent Navigation</a>
+                                </li>
+                            </ul>
+                            
+                            <h5>Common failures</h5>
+								<ul class="noBullet">
+									<li><span class="badge-intro"><span class="wb-icon-gear"></span>WET Template</span><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F66.html">F66 Failure of Success Criterion 3.2.3 due to presenting navigation links in a different relative order on different pages</a></li>
+                                    <li><span class="badge-intro"><span class="wb-icon-gear"></span>WET Template</span><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F73.html">F77 Failure of Success Criterion 1.4.1 due to creating links that are not visually evident without color vision</a></li>	
+								</ul>    
+						</div>
+					</div>
+				</details>
+    
+				<details>
+					<summary>99. Other level AA &amp; AAA that do not apply to our website</summary>
+					<div class="module-instructions">
+						<h3>Instructions</h3>
+						<div class="module">
+							<p>Success Criterion for 2.2.1 Timing Adjustable is not being used on the website.</p>
+                        
+                        <h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F62.html" target="_blank">F62 Failure of Success Criterion 1.3.1 and 4.1.1 due to insufficient information in DOM to determine specific relationships in XML</a></li> 
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F47" target="_blank">F47 Failure due to using the blink element</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F4" target="_blank">F4 Failure due to using text-decoration:blink without a mechanism to stop it in less than five seconds</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F50" target="_blank">F50 Failure due to a script that causes a blink effect without a mechanism to stop the blinking at 5 seconds or less</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F23.html">F23 Failure of 1.4.2 due to playing a sound longer than 3 seconds where there is no mechanism to turn it off</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F7" target="_blank">F7 Failure due to an object or applet, such as Java or Flash, that has blinking content without a mechanism to pause the content that blinks for more than five seconds</a></li>
+								</ul>    
+                         
+                         <h5>AAA Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F9.html" target="_blank">F9 Failure of Success Criterion 3.2.5 due to changing the context when the user removes focus from a form element</a></li> 
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F12.html" target="_blank">F12 Failure of Success Criterion 2.2.5 due to having a session time limit without a mechanism for saving user's input and re-establishing that information upon re-authentication</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F22.html" target="_blank">F22 Failure of Success Criterion 3.2.5 due to opening windows that are not requested by the user</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F60.html" target="_blank">F60 Failure of Success Criterion 3.2.5 due to launching a new window when a user enters text into an input field</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F61.html" target="_blank">F61 Failure of Success Criterion 3.2.5 due to complete change of main content through an automatic update that the user cannot disable from within the content</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F84.html" target="_blank">F84 Failure of Success Criterion 2.4.9 due to using a non-specific link such as "click here" or "more" without a mechanism to change the link text to specific text</a></li>
+                                    <li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F88.html" target="_blank">F88 Failure of Success Criterion 1.4.8 due to using text that is justified (aligned to both the left and the right margins)</a></li>
+								</ul>
+                                
+						</div>
+                        
+                        <p><a href="http://www.w3.org/TR/WCAG20/#ensure-compat-rsv" target="_blank">4.1.2 Name, Role, Value</a></p>
+							<div class="qa-Crit">
+								<h5>Related techniques</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/G108" target="_blank">G108 Using markup features to expose the name and role, allow user-settable properties to be directly set, and provide notification of changes</a></li>
+								</ul>
+								<h5>Common failures</h5>
+								<ul>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F59" target="_blank">F59 Failure due to using script to make div or span a user interface control in HTML</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F15" target="_blank">F15 Failure due to implementing custom controls that do not use an accessibility API for the technology, or do so incompletely</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F20" target="_blank">F20 Failure due to not updating text alternatives when changes to non-text content occur</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F68" target="_blank">F68 Failure due to the association of label and user interface controls not being programmatically determinable</a></li>
+									<li><a href="http://www.w3.org/TR/2012/NOTE-WCAG20-TECHS-20120103/F79" target="_blank">F79 Failure due to the focus state of a user interface component not being programmatically determinable or no notification of change of focus state available</a></li>
+								</ul>
+							</div>
+                        
+					</div>
+				</details>
+ 
+				<div class="clear"></div>
+ 
+				
+				
+				
+				
+				
+		
+		<!-- CONTENT ENDS | FIN DU CONTENU --> 
+ 	</section>
+	</div></div>
+<!-- LEFT SIDE MENU BEGINS | DEBUT DU MENU LATERAL GAUCHE -->
+<div class="clear"></div>
+<dl id="gcwu-date-mod" role="contentinfo">
+<dt>Date modified:</dt><dd><span><time>2013-12-31</time></span></dd>
+</dl>
+<div class="clear"></div>
+<!-- MainContentEnd -->
+</div></div>
+ 
+ 
+</div></div>
+ 
+ 
+ 
+ 
+<!-- LEFT SIDE MENU ENDS | FIN DU MENU LATERAL GAUCHE -->
+<!--googleoff: all-->
+<noindex><div id="wb-foot"><div id="wb-foot-in"><footer><h2>Footer</h2>
+<!-- FooterStart -->
+<nav role="navigation"><div id="gcwu-sft"><h3>Site footer</h3><div id="gcwu-sft-in">
+<section class="border-right"><div class="span-2"><h4 class="gcwu-col-head">About Connexion</h4>
+  <ul>
+    <li><a href="/connexion/about-apropos/introduction-eng.aspx">General information</a></li>
+    <li><a href="/connexion/communications/services/form-eng.aspx"><span class="wb-icon-nav-090"></span> Update content on Connexion</a></li>
+    <li><a href="/connexion/navigation/a_zindex-eng.aspx">A &ndash; Z index</a></li>
+    <li><a href="/connexion/communications/services/web-eng.aspx">Contact us</a></li>
+  </ul>
+</div></section>
+ 
+<section class="border-right"><div class="span-4">
+<form method="post" action="http://cic.sondages-surveys.ca/s/hc-question/?r=/connexion/webadmin/qa/assessment.aspx" id="survey-form">
+ 
+	<label for="id_zcIASGhO7e" class="gcwu-col-head"><strong>Was this page useful?</strong></label>
+<div class="clear"></div>
+ 
+<div class="span-2">
+		<select id="id_zcIASGhO7e" name="zcIASGhO7e" style=""><option value="-1">---</option><option value="0">Yes</option><option value="1">No</option></select>
+        
+  <label for="id_ywDg0XaBT3">Name (optional)</label>
+  <input id="id_ywDg0XaBT3" name="ywDg0XaBT3" type="text" value="" />
+</div>
+<div class="span-1 width-30">
+  <label for="id_8hnHXkKT9X">Submit a comment</label>	
+  <textarea id="id_8hnHXkKT9X" name="8hnHXkKT9X" rows="2" cols="25"></textarea>	
+  <input id="id_PBb5V3b69f" name="PBb5V3b69f" style="" type="hidden" value="/connexion/webadmin/qa/assessment.aspx" /> 
+  <input type="hidden" name="page" value="0" />
+  <input type="submit" name="submitbutton" value="Submit" /> 
+</div>
+  </form>
+ 
+</div></section>
+ 
+<!--
+<section><div class="span-2"><h4 class="gcwu-col-head"><a href="#">Update Connexion</a></h4>
+<ul>
+<li><a href="#">Link</a></li>
+<li><a href="#">Link</a></li>
+</ul>
+</div></section>
+-->
+<section><div class="span-2">
+	<h4 class="gcwu-col-head"><a href="http://www.cic.gc.ca/english/department/media/social.asp">Social media @ CIC</a></h4>
+  <ul>
+    <li><a href="http://twitter.com/#!/citimmcanada">Twitter</a></li>
+    <li><a href="http://www.youtube.com/CitImmCanada">Youtube</a></li>
+    <li><a href="https://www.facebook.com/CitCanada">Facebook</a></li>
+    <li><a href="http://www.cic.gc.ca/english/department/media/rss/rss-feeds.asp">RSS</a></li>
+  </ul>
+</div></section>
+<div id="gcwu-tctr">
+<ul>
+<li class="gcwu-tc"><a href="/cicexplore/english/help_aide/note-eng.aspx" rel="license">Terms and conditions</a></li>
+<!--<li class="gcwu-tr"><a href="#">Transparency</a></li>-->
+</ul>
+</div>
+</div></div></nav>
+<!-- FooterEnd -->
+</footer>
+</div></div></noindex>
+<!--googleon: all--></div>
+<!-- WEBTRENDS TRACKING START -->
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2012 Webtrends Inc. All rights reserved. -->
+<!-- Version: 9.4.0 -->
+<!-- Tag Builder Version: 4.1 -->
+<!-- Created: 10/16/2012 7:20:37 PM -->
+<script src="/scripts/webtrends.js" type="text/javascript"></script>
+<!-- *********************************************************************************** -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.   -->
+<!-- *********************************************************************************** -->
+<script type="text/javascript"> 
+//<![CDATA[
+var _tag=new WebTrends();
+_tag.dcsGetId();
+//]]>
+</script>
+<script type="text/javascript"> 
+//<![CDATA[
+_tag.dcsCustom=function(){
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+}
+_tag.dcsCollect();
+//]]>
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//10.24.221.69/dcsv9e321dvco0was4d01zqd2_4v6t/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.ci.gc.ca"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+<!-- WEBTRENDS TRACKING END -->
+ 
+<!-- PIWIK START -->
+<script type="text/javascript"> 
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://10.24.221.70:81/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="http://10.24.221.70:81/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- PIWIK END -->
+ 
+<!-- ScriptsStart -->
+<script src="/wet3/build/theme-gcwu-intranet/js/theme-min.js"></script>
+<script src="/wet3/build/js/settings.js"></script>
+<script src="/wet3/build/js/pe-ap-min.js"></script>
+<!-- ScriptsEnd -->
+ 
+</body>
+</html>
+
