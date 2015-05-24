@@ -1,0 +1,1353 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>HTML tables
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Dynamically stacks multiple sections of content, transforming them into a tabbed interface.">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
+
+
+<!-- Custom CSS -->
+<style>
+	table.blue th {
+		background-color: #0E4164;
+		color:white;
+	}
+</style>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<object type="image/svg+xml" tabindex="-1" data="../../assets/logo.svg"></object>
+<span>Accessible HTML Tables <span class="wb-inv">, </span><small>The Accessibility Conference - University of Guelph 2015</small></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">HTML tables elements</h1>
+
+
+
+
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Structural</h2>
+		<p>A structural element is used to classify and give a particular sementic to the informative element and their styling would affect the informative element associated to them. In the HTML the table structural element are:</p>
+		<ul>
+			<li><code>table</code></li>
+			<li><code>colgroup</code> [<em><code>span</code></em>]</li>
+			<li><code>col</code> [<em><code>span</code></em>]</li>
+			<li><code>thead</code></li>
+			<li><code>tbody</code></li>
+			<li><code>tfoot</code></li>
+			<li><code>tr</code></li>
+		</ul>
+	</div>
+	
+	<div class="col-md-6">
+		<h2>Informative</h2>
+		<p>The informative element is related to the visual look of the table. In the HTML the table informative element are:</p>
+		<ul>
+			<li><code>caption</code></li>
+			<li><code>th</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code>, <code>scope</code></em>]</li>
+			<li><code>td</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code></em>]</li>
+		</ul>
+	</div>
+</div>
+
+<hr />
+
+
+
+
+<div class="wb-prettify"></div>
+
+<h2>Tables used for the example bellow</h2>
+
+<table class="table-bordered table blue">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+<details>
+	<summary>Source code of the example bellow</summary>
+	<pre class="prettyprint"><code>&lt;table&gt;
+	&lt;caption&gt;Caption&lt;/caption&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th colspan=&quot;5&quot;&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th colspan=&quot;5&quot;&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+</details>
+
+
+
+<hr />
+
+<h2><code>table</code> - Structural</h2>
+
+
+<table class="table-bordered table" style="border-right: black solid 4px; border-bottom: black solid 4px; border-left: black solid 4px;">
+	<caption style="border-top: black solid 4px; border-right: black solid 4px; border-left: black solid 4px;">Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+</div>
+
+
+
+
+<hr />
+
+<h2><code>tr</code> - Structural</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<th style="border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<th style="border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<th style="border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5" style="border-left: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;  border-bottom: black solid 4px;">header</th>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5" style="border-left: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;  border-bottom: black solid 4px;">header</th>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px; border-right: black solid 4px;">summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+<hr />
+
+<h2><code>th</code> - Informative</h2>
+
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<th style="background-color:#777">header</th>
+			<th style="background-color:#777">header</th>
+			<th style="background-color:#777">header</th>
+			<th style="background-color:#777">header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5" style="background-color:#777">header</th>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5" style="background-color:#777">header</th>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th style="background-color:#777">header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+
+<hr />
+
+<h2><code>td</code> - Informative</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+			<td style="background-color:#777">data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td style="background-color:#777">summary</td>
+			<td style="background-color:#777">summary</td>
+			<td style="background-color:#777">summary</td>
+			<td style="background-color:#777">summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+
+<hr />
+
+<h2><code>caption</code> - Informative</h2>
+
+
+<table class="table-bordered table">
+	<caption style="background-color:#777">Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+
+
+<hr />
+
+<h2><code>thead</code> - Structural</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px; border-left: black solid 4px;">header</th>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-bottom: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+<hr />
+
+<h2><code>tbody</code> - Structural</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5" style="border-left: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">header</th>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px;">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px;">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-bottom: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5" style="border-left: black solid 4px; border-top: black solid 4px; border-right: black solid 4px;">header</th>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px;">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-left: black solid 4px;">header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-bottom: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px;">data</td>
+			<td style="border-bottom: black solid 4px; border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>header</th>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+			<td>summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+<hr />
+
+<h2><code>tfoot</code> - Structural</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+			<th>header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+		<tr>
+			<th>header</th>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+			<td>data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th style="border-left: black solid 4px; border-top: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-top: black solid 4px; border-bottom: black solid 4px; border-right: black solid 4px;">summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+
+
+
+
+<hr />
+
+<h2><code>col</code> - Structural</h2>
+
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+<hr />
+
+<h2><code>colgroup</code> - Structural</h2>
+
+<table class="table-bordered table">
+	<caption>Caption</caption>
+	<colgroup>
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<colgroup>
+		<col />
+		<col />
+	</colgroup>
+	<thead>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-left: black solid 4px; border-top: black solid 4px;">header</th>
+			<th style="border-right: black solid 4px; border-top: black solid 4px;">header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th colspan="5">header</th>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+			<td style="border-left: black solid 4px;">data</td>
+			<td style="border-right: black solid 4px;">data</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th style="border-right: black solid 4px; border-left: black solid 4px; border-bottom: black solid 4px;">header</th>
+			<td style="border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-right: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-left: black solid 4px; border-bottom: black solid 4px;">summary</td>
+			<td style="border-right: black solid 4px; border-bottom: black solid 4px;">summary</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Source code of the example above</h2>
+	<pre class="prettyprint"><code>&lt;table&gt;
+	&lt;caption&gt;Caption&lt;/caption&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;colgroup&gt;
+		&lt;col /&gt;
+		&lt;col /&gt;
+	&lt;/colgroup&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;th&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th colspan=&quot;5&quot;&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th colspan=&quot;5&quot;&gt;header&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+			&lt;td&gt;data&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;th&gt;header&lt;/th&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+			&lt;td&gt;summary&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+
+
+
+
+
+
+
+
+</main>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+
+<![endif]-->
+</body>
+</html>

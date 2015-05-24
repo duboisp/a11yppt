@@ -1,0 +1,542 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>HTML tables
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Dynamically stacks multiple sections of content, transforming them into a tabbed interface.">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
+
+
+<!-- Custom CSS -->
+<style>
+	th {
+		background-color: #0E4164;
+		color:white;
+	}
+</style>
+
+
+
+
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<object type="image/svg+xml" tabindex="-1" data="../../assets/logo.svg"></object>
+<span>Accessible HTML Tables <span class="wb-inv">, </span><small>The Accessibility Conference - University of Guelph 2015</small></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">Layout tables - Example 1</h1>
+
+
+<div class="wb-prettify"></div>
+
+
+<!--
+* Example with Layout Table
+* Example with CSS
+* Example with List
+
+Note: Need to ask ourself question about what is the content
+
+-->
+
+
+<!--
+
+Source Code Extracted from: www.cbc.ca on 2015-05-24
+
+
+    Q: Kim Kardashian Kim Kardashian Can the star's selfie book end modern capitalism?
+    Steven And Chris: Sick Clothes Bare Truth These clothes could be making you sick.
+    Steven And Chris: Tiny Travelling Home tiny travelling home This couple quit their job & hit the road.
+    Video: Tanning Dragons Den Tanning Success After Dragons' Den, she's making it big.
+    DNTO: Travel Disasters Travel Disasters What happens when a trip doesn't go as planned?
+    Steven And Chris: Buying a Condo Buying a Condo See seven things you must know.
+
+
+<ul id="discovery">
+     <li id="yui_3_11_0_2_1432444643046_256">
+<a id="yui_3_11_0_2_1432444643046_255" href="http://www.cbc.ca/radio/q/schedule-for-thursday-may-21-2015-1.3080918/shad-can-kim-kardashian-s-selfie-book-end-modern-capitalism-1.3082156">
+	<img src="/network/includes/gfx/KimKardashian2.jpg" alt="Q: Kim Kardashian" border="0" height="79" width="140">
+	<span>
+		<b>Kim Kardashian</b>
+		<span>Can the star's selfie book end modern capitalism?</span>
+	</span>
+</a>
+</li>
+
+
+     <li>
+<a href="http://www.cbc.ca/stevenandchris/health/fashion-staples-that-could-be-making-you-sick">
+	<img src="/network/includes/gfx/Jeans1.jpg" alt="Steven And Chris: Sick Clothes" border="0" height="79" width="140">
+	<span>
+		<b>Bare Truth</b>
+		<span>These clothes could be making you sick.</span>
+	</span>
+</a>
+</li>
+
+     <li>
+<a href="http://www.cbc.ca/stevenandchris/decor/tiny-house-big-journey">
+	<img src="/network/includes/gfx/TinyTravellingHome.jpg" alt="Steven And Chris: Tiny Travelling Home" border="0" height="79" width="140">
+	<span>
+		<b>tiny travelling home</b>
+		<span>This couple quit their job &amp; hit the road.</span>
+	</span>
+</a>
+</li>
+
+     <li>
+<a href="http://www.cbc.ca/dragonsden/celebrationofsuccess/tan-on-the-run">
+	<img src="/network/includes/gfx/Tanning.jpg" alt="Video: Tanning Dragons Den" border="0" height="79" width="140">
+	<span>
+		<b>Tanning Success</b>
+		<span>After <i>Dragons' Den</i>, she's making it big.</span>
+	</span>
+</a>
+</li>
+
+
+
+     <li>
+<a href="http://www.cbc.ca/radio/dnto/what-happens-when-a-trip-doesn-t-go-as-planned-1.3072449">
+	<img src="/network/includes/gfx/Airplane1.jpg" alt="DNTO: Travel Disasters" border="0" height="79" width="140">
+	<span>
+		<b>Travel Disasters</b>
+		<span>What happens when a trip doesn't go as planned?</span>
+	</span>
+</a>
+</li>
+
+     <li>
+<a href="http://www.cbc.ca/stevenandchris/life/7-things-you-must-know-before-buying-a-condo">
+	<img src="/network/includes/gfx/Condo1.jpg" alt="Steven And Chris: Buying a Condo" border="0" height="79" width="140">
+	<span>
+		<b>Buying a Condo</b>
+		<span>See seven things you must know.</span>
+	</span>
+</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     </ul>
+-->
+<h2 class="mrgn-bttm-lg mrgn-tp-lg">Version 1</h2>
+
+<table class="row">
+	<tr>
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/home-to-vote.jpg" alt="Kim Kardashian">
+		</td>
+		<td>
+			<strong>Kim Kardashian</strong><br />
+			Can the star's selfie book end modern capitalism?
+		</td>
+	
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/dd_s09e18_lead.jpg" alt="Tanning Success">
+		</td>
+		<td>
+			<strong>Tanning Success</strong><br />
+			After <i>Dragons' Den</i>, she's making it big.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/s4e18_lead.jpg" alt="Bare Truth">
+		</td>
+		<td>
+			<strong>Bare Truth</strong><br />
+				These clothes could be making you sick.
+		</td>
+
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/Airplane1.jpg" alt="Travel Disasters">
+		</td>
+		<td>
+			<strong>Travel Disasters</strong><br />
+			What happens when a trip doesn't go as planned?
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/TinyTravellingHome.jpg" alt="tiny travelling home">
+		</td>
+		<td>
+			<strong>tiny travelling home</strong><br />
+			This couple quit their job &amp; hit the road.
+		</td>
+		<td>
+			<img class="col-sm-12 mrgn-bttm-md" src="images/Condo1.jpg" alt="Buying a Condo">
+		</td>
+		<td>
+			<strong>Buying a Condo</strong><br />
+			See seven things you must know.
+		</td>
+	</tr>
+</table>
+
+
+<details>
+	<summary>Source code</summary>
+<pre class="prettyprint"><code>&lt;table class=&quot;row&quot;&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/home-to-vote.jpg&quot; alt=&quot;Kim Kardashian&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;Kim Kardashian&lt;/strong&gt;&lt;br /&gt;
+			Can the star's selfie book end modern capitalism?
+		&lt;/td&gt;
+	
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/dd_s09e18_lead.jpg&quot; alt=&quot;Tanning Success&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;Tanning Success&lt;/strong&gt;&lt;br /&gt;
+			After &lt;i&gt;Dragons' Den&lt;/i&gt;, she's making it big.
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/s4e18_lead.jpg&quot; alt=&quot;Bare Truth&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;Bare Truth&lt;/strong&gt;&lt;br /&gt;
+				These clothes could be making you sick.
+		&lt;/td&gt;
+
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/Airplane1.jpg&quot; alt=&quot;Travel Disasters&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;Travel Disasters&lt;/strong&gt;&lt;br /&gt;
+			What happens when a trip doesn't go as planned?
+		&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/TinyTravellingHome.jpg&quot; alt=&quot;tiny travelling home&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;tiny travelling home&lt;/strong&gt;&lt;br /&gt;
+			This couple quit their job &amp;amp; hit the road.
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;img class=&quot;col-sm-12 mrgn-bttm-md&quot; src=&quot;images/Condo1.jpg&quot; alt=&quot;Buying a Condo&quot;&gt;
+		&lt;/td&gt;
+		&lt;td&gt;
+			&lt;strong&gt;Buying a Condo&lt;/strong&gt;&lt;br /&gt;
+			See seven things you must know.
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</details>
+
+<h2 class="mrgn-bttm-lg mrgn-tp-lg">Version 2</h2>
+
+
+
+<div class="row mrgn-bttm-md">
+	<img class="col-sm-3" src="images/home-to-vote.jpg" alt="Kim Kardashian">
+	<div class="col-sm-3">
+		<strong>Kim Kardashian</strong><br />
+		Can the star's selfie book end modern capitalism?
+	</div>
+	
+	<img class="col-sm-3" src="images/dd_s09e18_lead.jpg" alt="Tanning Success">
+	<div class="col-sm-3">
+		<strong>Tanning Success</strong><br />
+		After <i>Dragons' Den</i>, she's making it big.
+	</div>
+</div>
+
+<div class="row mrgn-bttm-md">
+	<img class="col-sm-3" src="images/s4e18_lead.jpg" alt="Bare Truth">
+	<div class="col-sm-3">
+		<strong>Bare Truth</strong><br />
+		These clothes could be making you sick.
+	</div>
+	<img class="col-sm-3" src="images/Airplane1.jpg" alt="Travel Disasters">
+	<div class="col-sm-3">
+		<strong>Travel Disasters</strong><br />
+		What happens when a trip doesn't go as planned?
+	</div>
+</div>
+
+<div class="row mrgn-bttm-md">
+	<img class="col-sm-3" src="images/TinyTravellingHome.jpg" alt="tiny travelling home">
+	<div class="col-sm-3">
+		<strong>tiny travelling home</strong><br />
+		This couple quit their job &amp; hit the road.
+	</div>
+	<img class="col-sm-3" src="images/Condo1.jpg" alt="Buying a Condo">
+	<div class="col-sm-3">
+		<strong>Buying a Condo</strong><br />
+		See seven things you must know.
+	</div>
+</div>
+
+
+<details>
+	<summary>Source code</summary>
+<pre class="prettyprint"><code>&lt;div class=&quot;row mrgn-bttm-md&quot;&gt;
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/home-to-vote.jpg&quot; alt=&quot;Kim Kardashian&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;Kim Kardashian&lt;/strong&gt;&lt;br /&gt;
+		Can the star's selfie book end modern capitalism?
+	&lt;/div&gt;
+	
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/dd_s09e18_lead.jpg&quot; alt=&quot;Tanning Success&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;Tanning Success&lt;/strong&gt;&lt;br /&gt;
+		After &lt;i&gt;Dragons' Den&lt;/i&gt;, she's making it big.
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mrgn-bttm-md&quot;&gt;
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/s4e18_lead.jpg&quot; alt=&quot;Bare Truth&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;Bare Truth&lt;/strong&gt;&lt;br /&gt;
+		These clothes could be making you sick.
+	&lt;/div&gt;
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/Airplane1.jpg&quot; alt=&quot;Travel Disasters&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;Travel Disasters&lt;/strong&gt;&lt;br /&gt;
+		What happens when a trip doesn't go as planned?
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;row mrgn-bttm-md&quot;&gt;
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/TinyTravellingHome.jpg&quot; alt=&quot;tiny travelling home&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;tiny travelling home&lt;/strong&gt;&lt;br /&gt;
+		This couple quit their job &amp;amp; hit the road.
+	&lt;/div&gt;
+	&lt;img class=&quot;col-sm-3&quot; src=&quot;images/Condo1.jpg&quot; alt=&quot;Buying a Condo&quot;&gt;
+	&lt;div class=&quot;col-sm-3&quot;&gt;
+		&lt;strong&gt;Buying a Condo&lt;/strong&gt;&lt;br /&gt;
+		See seven things you must know.
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</details>
+
+
+<h2 class="mrgn-bttm-lg mrgn-tp-lg">Version 3</h2>
+
+
+
+
+
+
+
+
+
+<ul class="colcount-sm-2 list-unstyled">
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/home-to-vote.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>Kim Kardashian</strong><br />
+				Can the star's selfie book end modern capitalism?
+			</figcaption>
+		</figure>
+	</li>
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/s4e18_lead.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>Bare Truth</strong><br />
+				These clothes could be making you sick.
+			</figcaption>
+		</figure>
+	</li>
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/TinyTravellingHome.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>tiny travelling home</strong><br />
+				This couple quit their job &amp; hit the road.
+			</figcaption>
+		</figure>
+	</li>
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/dd_s09e18_lead.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>Tanning Success</strong><br />
+				After <i>Dragons' Den</i>, she's making it big.
+			</figcaption>
+		</figure>
+	</li>
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/Airplane1.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>Travel Disasters</strong><br />
+				What happens when a trip doesn't go as planned?
+			</figcaption>
+		</figure>
+	</li>
+	<li class="mrgn-bttm-md">
+		<figure class="row">
+			<img class="col-sm-6" src="images/Condo1.jpg" alt="">
+			<figcaption class="col-sm-6">
+				<strong>Buying a Condo</strong><br />
+				See seven things you must know.
+			</figcaption>
+		</figure>
+	</li>
+</ul>
+
+
+<details>
+	<summary>Source code</summary>
+<pre class="prettyprint"><code>&lt;ul class=&quot;colcount-sm-2 list-unstyled&quot;&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/home-to-vote.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;Kim Kardashian&lt;/strong&gt;&lt;br /&gt;
+				Can the star's selfie book end modern capitalism?
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/s4e18_lead.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;Bare Truth&lt;/strong&gt;&lt;br /&gt;
+				These clothes could be making you sick.
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/TinyTravellingHome.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;tiny travelling home&lt;/strong&gt;&lt;br /&gt;
+				This couple quit their job &amp;amp; hit the road.
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/dd_s09e18_lead.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;Tanning Success&lt;/strong&gt;&lt;br /&gt;
+				After &lt;i&gt;Dragons' Den&lt;/i&gt;, she's making it big.
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/Airplane1.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;Travel Disasters&lt;/strong&gt;&lt;br /&gt;
+				What happens when a trip doesn't go as planned?
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;mrgn-bttm-md&quot;&gt;
+		&lt;figure class=&quot;row&quot;&gt;
+			&lt;img class=&quot;col-sm-6&quot; src=&quot;images/Condo1.jpg&quot; alt=&quot;&quot;&gt;
+			&lt;figcaption class=&quot;col-sm-6&quot;&gt;
+				&lt;strong&gt;Buying a Condo&lt;/strong&gt;&lt;br /&gt;
+				See seven things you must know.
+			&lt;/figcaption&gt;
+		&lt;/figure&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</details>
+
+
+
+
+
+
+</main>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+
+<![endif]-->
+</body>
+</html>

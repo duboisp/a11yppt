@@ -1,0 +1,678 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>HTML tables
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Dynamically stacks multiple sections of content, transforming them into a tabbed interface.">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
+
+
+<!-- Custom CSS -->
+<style>
+	pre {
+		display:none;
+	}
+	pre.on {
+		display:block;
+	}
+	th {
+		background-color: #0E4164;
+		color:white;
+	}
+</style>
+
+
+
+
+
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<object type="image/svg+xml" tabindex="-1" data="../../assets/logo.svg"></object>
+<span>Accessible HTML Tables <span class="wb-inv">, </span><small>The Accessibility Conference - University of Guelph 2015</small></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">Data tables</h1>
+
+<div class="wb-prettify"></div>
+
+<button class="wb-toggle" data-toggle='{"selector": "pre"}'>Toggle code view</button>
+
+
+<h2>One header - Row</h2>
+
+<div class="row">
+<div class="col-sm-6">
+	<table class="table-bordered table">
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Twitter</th>
+		</tr>
+		<tr>
+			<td>Toufic</td>
+			<td>Ottawa</td>
+			<td>@TouficSbeiti</td>
+		</tr>
+		<tr>
+			<td>Pierre</td>
+			<td>Gatineau</td>
+			<td>@duboi5p</td>
+		</tr>
+	</table>
+</div>
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Name&lt;/th&gt;
+		&lt;th&gt;City&lt;/th&gt;
+		&lt;th&gt;Twitter&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Toufic&lt;/td&gt;
+		&lt;td&gt;Ottawa&lt;/td&gt;
+		&lt;td&gt;@TouficSbeiti&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Pierre&lt;/td&gt;
+		&lt;td&gt;Gatineau&lt;/td&gt;
+		&lt;td&gt;@duboi5p&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+<hr />
+
+
+<h2>One header - Column</h2>
+
+<div class="row">
+<div class="col-sm-6">
+	<table class="table-bordered table">
+		<tr>
+			<th>Name</th>
+			<td>Toufic</td>
+			<td>Pierre</td>
+		</tr>
+		<tr>
+			<th>City</th>
+			<td>Ottawa</td>
+			<td>Gatineau</td>
+		</tr>
+		<tr>
+			<th>Twitter</th>
+			<td>@TouficSbeiti</td>
+			<td>@duboi5p</td>
+		</tr>
+	</table>
+</div>
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Name&lt;/th&gt;
+		&lt;td&gt;Toufic&lt;/td&gt;
+		&lt;td&gt;Pierre&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th&gt;City&lt;/th&gt;
+		&lt;td&gt;Ottawa&lt;/td&gt;
+		&lt;td&gt;Gatineau&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Twitter&lt;/th&gt;
+		&lt;td&gt;@TouficSbeiti&lt;/td&gt;
+		&lt;td&gt;@duboi5p&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+<hr />
+
+
+<h2>Two headers </h2>
+<div class="row">
+<div class="col-sm-6">
+	<table class="table-bordered table">
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>Twitter</th>
+		</tr>
+		<tr>
+			<th>Toufic</th>
+			<td>Ottawa</td>
+			<td>@TouficSbeiti</td>
+		</tr>
+		<tr>
+			<th>Pierre</th>
+			<td>Gatineau</td>
+			<td>@duboi5p</td>
+		</tr>
+	</table>
+</div>
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Name&lt;/th&gt;
+		&lt;th&gt;City&lt;/th&gt;
+		&lt;th&gt;Twitter&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Toufic&lt;/th&gt;
+		&lt;td&gt;Ottawa&lt;/td&gt;
+		&lt;td&gt;@TouficSbeiti&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;th&gt;Pierre&lt;/th&gt;
+		&lt;td&gt;Gatineau&lt;/td&gt;
+		&lt;td&gt;@duboi5p&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+
+
+<hr />
+
+<h2>Table with two tier headers - Column</h2>
+
+<div class="row">
+<div class="col-sm-6">
+<table class="table table-bordered">
+  <colgroup>
+	<col />
+  </colgroup>
+  <colgroup>
+	<col />
+	<col />
+  </colgroup>
+  <colgroup span="2"></colgroup>
+  <tr>
+    <td rowspan="2"></td>
+    <th colspan="2" scope="colgroup">Mars</th>
+    <th colspan="2" scope="colgroup">Venus</th>
+  </tr>
+  <tr>
+    <th scope="col">Produced</th>
+    <th scope="col">Sold</th>
+    <th scope="col">Produced</th>
+    <th scope="col">Sold</th>
+  </tr>
+  <tr>
+    <th scope="row">Teddy Bears</th>
+    <td>50,000</td>
+    <td>30,000</td>
+    <td>100,000</td>
+    <td>80,000</td>
+  </tr>
+  <tr>
+    <th scope="row">Board Games</th>
+    <td>10,000</td>
+    <td>5,000</td>
+    <td>12,000</td>
+    <td>9,000</td>
+  </tr>
+</table>
+</div>
+
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table class=&quot;table table-bordered&quot;&gt;
+  &lt;colgroup&gt;
+	&lt;col /&gt;
+  &lt;/colgroup&gt;
+  &lt;colgroup&gt;
+	&lt;col /&gt;
+	&lt;col /&gt;
+  &lt;/colgroup&gt;
+  &lt;colgroup span=&quot;2&quot;&gt;&lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;td rowspan=&quot;2&quot;&gt;&lt;/td&gt;
+    &lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Mars&lt;/th&gt;
+    &lt;th colspan=&quot;2&quot; scope=&quot;colgroup&quot;&gt;Venus&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;col&quot;&gt;Produced&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Sold&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Produced&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Sold&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;row&quot;&gt;Teddy Bears&lt;/th&gt;
+    &lt;td&gt;50,000&lt;/td&gt;
+    &lt;td&gt;30,000&lt;/td&gt;
+    &lt;td&gt;100,000&lt;/td&gt;
+    &lt;td&gt;80,000&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th scope=&quot;row&quot;&gt;Board Games&lt;/th&gt;
+    &lt;td&gt;10,000&lt;/td&gt;
+    &lt;td&gt;5,000&lt;/td&gt;
+    &lt;td&gt;12,000&lt;/td&gt;
+    &lt;td&gt;9,000&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+
+<hr />
+
+<h2>Table with two tier headers - Row</h2>
+
+<div class="row">
+<div class="col-sm-6">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Poster name</th>
+      <th scope="col">Color</th>
+      <th scope="col">Quantity of <br />Classic</th>
+      <th scope="col">Quantity of <br />Modern</th>
+      <th scope="col">Quantity of <br />Futuristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" scope="rowgroup">WxT</th>
+      <th scope="row">Full color</th>
+      <td>65</td>
+      <td>24</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th scope="row">Black and white</th>
+      <td>12</td>
+      <td>66</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>25</td>
+      <td>26</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th rowspan="2" scope="rowgroup">Canada</th>
+      <th scope="row">Full color</th>
+      <td>74</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>71</td>
+      <td>55</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;col&quot;&gt;Poster name&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Color&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Quantity of &lt;br /&gt;Classic&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Quantity of &lt;br /&gt;Modern&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Quantity of &lt;br /&gt;Futuristic&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;3&quot; scope=&quot;rowgroup&quot;&gt;WxT&lt;/th&gt;
+      &lt;th scope=&quot;row&quot;&gt;Full color&lt;/th&gt;
+      &lt;td&gt;65&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Black and white&lt;/th&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot; scope=&quot;rowgroup&quot;&gt;Canada&lt;/th&gt;
+      &lt;th scope=&quot;row&quot;&gt;Full color&lt;/th&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+      &lt;td&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+
+<hr />
+
+
+<h2>Table with two tier headers - Row (different style)</h2>
+
+<div class="row">
+<div class="col-sm-6">
+<table class="table table-bordered">
+  <caption>Quantity of poster</caption>
+  <thead>
+    <tr>
+      <th scope="col">Color</th>
+      <th scope="col">Classic</th>
+      <th scope="col">Modern</th>
+      <th scope="col">Futuristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th colspan="4" scope="rowgroup">WxT</th>
+	</tr>
+	<tr>
+      <th scope="row">Full color</th>
+      <td>65</td>
+      <td>24</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th scope="row">Black and white</th>
+      <td>12</td>
+      <td>66</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>25</td>
+      <td>26</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th colspan="4" scope="rowgroup">Canada</th>
+	</tr>
+	<tr>
+      <th scope="row">Full color</th>
+      <td>74</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>71</td>
+      <td>55</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;col&quot;&gt;Color&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Classic&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Modern&lt;/th&gt;
+      &lt;th scope=&quot;col&quot;&gt;Futuristic&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th colspan=&quot;4&quot; scope=&quot;rowgroup&quot;&gt;WxT&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Full color&lt;/th&gt;
+      &lt;td&gt;65&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Black and white&lt;/th&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th colspan=&quot;4&quot; scope=&quot;rowgroup&quot;&gt;Canada&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Full color&lt;/th&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+      &lt;td&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+
+
+
+<h2>Table with three header related with data cells - ids/headers</h2>
+
+
+<div class="row">
+<div class="col-sm-6">
+<table class="table table-bordered">
+  <caption>Quantity of poster</caption><colgroup><col /><col /></colgroup><colgroup><col /><col /><col /></colgroup>
+  <thead>
+    <tr>
+      <th id="tbl5" colspan="2">Color</th>
+      <th id="tbl6">Classic</th>
+      <th id="tbl7">Modern</th>
+      <th id="tbl8">Futuristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="tbl12" colspan="5">WxT</th>
+	</tr>
+	<tr>
+      <th headers="tbl5 tbl12" id="tbl15" colspan="2">Full color</th>
+      <td headers="tbl6 tbl12 tbl15">65</td>
+      <td headers="tbl7 tbl12 tbl15">24</td>
+      <td headers="tbl8 tbl12 tbl15">15</td>
+    </tr>
+    <tr>
+	  <th headers="tbl5 tbl12" id="tbl29" rowspan="2">Economic</th>
+      <th headers="tbl5 tbl12 tbl29" id="tbl30">Black and white</th>
+      <td headers="tbl6 tbl12 tbl29 tbl30">12</td>
+      <td headers="tbl7 tbl12 tbl29 tbl30">66</td>
+      <td headers="tbl8 tbl12 tbl29 tbl30">48</td>
+    </tr>
+    <tr>
+      <th headers="tbl5 tbl12" id="tbl37">Sepia</th>
+      <td headers="tbl6 tbl12 tbl29 tbl37">25</td>
+      <td headers="tbl7 tbl12 tbl29 tbl37">26</td>
+      <td headers="tbl8 tbl12 tbl29 tbl37">24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th id="tbl45" colspan="5">Canada</th>
+	</tr>
+	<tr>
+      <th headers="tbl5 tbl45" id="tbl48" colspan="2">Full color</th>
+      <td headers="tbl6 tbl45 tbl48">74</td>
+      <td headers="tbl7 tbl45 tbl48">48</td>
+      <td headers="tbl8 tbl45 tbl48">86</td>
+    </tr>
+    <tr>
+	  <th headers="tbl5 tbl45" id="tbl55">Economic</th>
+      <th headers="tbl5 tbl45 tbl55" id="tbl56">Sepia</th>
+      <td headers="tbl6 tbl45 tbl55 tbl56">71</td>
+      <td headers="tbl7 tbl45 tbl55 tbl56">55</td>
+      <td headers="tbl8 tbl45 tbl55 tbl56">66</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="col-sm-6">
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster&lt;/caption&gt;&lt;colgroup&gt;&lt;col /&gt;&lt;col /&gt;&lt;/colgroup&gt;&lt;colgroup&gt;&lt;col /&gt;&lt;col /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id=&quot;tbl5&quot; colspan=&quot;2&quot;&gt;Color&lt;/th&gt;
+      &lt;th id=&quot;tbl6&quot;&gt;Classic&lt;/th&gt;
+      &lt;th id=&quot;tbl7&quot;&gt;Modern&lt;/th&gt;
+      &lt;th id=&quot;tbl8&quot;&gt;Futuristic&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th id=&quot;tbl12&quot; colspan=&quot;5&quot;&gt;WxT&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th headers=&quot;tbl5 tbl12&quot; id=&quot;tbl15&quot; colspan=&quot;2&quot;&gt;Full color&lt;/th&gt;
+      &lt;td headers=&quot;tbl6 tbl12 tbl15&quot;&gt;65&lt;/td&gt;
+      &lt;td headers=&quot;tbl7 tbl12 tbl15&quot;&gt;24&lt;/td&gt;
+      &lt;td headers=&quot;tbl8 tbl12 tbl15&quot;&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th headers=&quot;tbl5 tbl12&quot; id=&quot;tbl29&quot; rowspan=&quot;2&quot;&gt;Economic&lt;/th&gt;
+      &lt;th headers=&quot;tbl5 tbl12 tbl29&quot; id=&quot;tbl30&quot;&gt;Black and white&lt;/th&gt;
+      &lt;td headers=&quot;tbl6 tbl12 tbl29 tbl30&quot;&gt;12&lt;/td&gt;
+      &lt;td headers=&quot;tbl7 tbl12 tbl29 tbl30&quot;&gt;66&lt;/td&gt;
+      &lt;td headers=&quot;tbl8 tbl12 tbl29 tbl30&quot;&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th headers=&quot;tbl5 tbl12&quot; id=&quot;tbl37&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td headers=&quot;tbl6 tbl12 tbl29 tbl37&quot;&gt;25&lt;/td&gt;
+      &lt;td headers=&quot;tbl7 tbl12 tbl29 tbl37&quot;&gt;26&lt;/td&gt;
+      &lt;td headers=&quot;tbl8 tbl12 tbl29 tbl37&quot;&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th id=&quot;tbl45&quot; colspan=&quot;5&quot;&gt;Canada&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th headers=&quot;tbl5 tbl45&quot; id=&quot;tbl48&quot; colspan=&quot;2&quot;&gt;Full color&lt;/th&gt;
+      &lt;td headers=&quot;tbl6 tbl45 tbl48&quot;&gt;74&lt;/td&gt;
+      &lt;td headers=&quot;tbl7 tbl45 tbl48&quot;&gt;48&lt;/td&gt;
+      &lt;td headers=&quot;tbl8 tbl45 tbl48&quot;&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th headers=&quot;tbl5 tbl45&quot; id=&quot;tbl55&quot;&gt;Economic&lt;/th&gt;
+      &lt;th headers=&quot;tbl5 tbl45 tbl55&quot; id=&quot;tbl56&quot;&gt;Sepia&lt;/th&gt;
+      &lt;td headers=&quot;tbl6 tbl45 tbl55 tbl56&quot;&gt;71&lt;/td&gt;
+      &lt;td headers=&quot;tbl7 tbl45 tbl55 tbl56&quot;&gt;55&lt;/td&gt;
+      &lt;td headers=&quot;tbl8 tbl45 tbl55 tbl56&quot;&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</div>
+</div>
+
+
+
+</main>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+
+<![endif]-->
+</body>
+</html>
