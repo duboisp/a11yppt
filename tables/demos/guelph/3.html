@@ -90,40 +90,55 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 
 
-<div class="row">
-	<div class="col-md-6">
-		<h2>Structural</h2>
-		<p>A structural element is used to classify and give a particular sementic to the informative element and their styling would affect the informative element associated to them. In the HTML the table structural element are:</p>
-		<ul>
-			<li><code>table</code></li>
-			<li><code>colgroup</code> [<em><code>span</code></em>]</li>
-			<li><code>col</code> [<em><code>span</code></em>]</li>
-			<li><code>thead</code></li>
-			<li><code>tbody</code></li>
-			<li><code>tfoot</code></li>
-			<li><code>tr</code></li>
-		</ul>
-	</div>
-	
-	<div class="col-md-6">
-		<h2>Informative</h2>
-		<p>The informative element is related to the visual look of the table. In the HTML the table informative element are:</p>
-		<ul>
-			<li><code>caption</code></li>
-			<li><code>th</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code>, <code>scope</code></em>]</li>
-			<li><code>td</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code></em>]</li>
-		</ul>
-	</div>
-</div>
-
-<hr />
-
-
-
-
 <div class="wb-prettify"></div>
 
-<h2>Tables used for the example bellow</h2>
+
+
+<h2>Classification</h2>
+<div class="row">
+
+<div class="col-sm-3">
+	<h3>Matrix</h3>
+	<ul>
+		<li><code>table</code></li>
+	</ul>
+</div>
+
+<div class="col-sm-3">
+	<h3>Axis</h3>
+	<ul>
+		<li><code>tr</code></li>
+		<li><code>col</code></li>
+	</ul>
+</div>
+
+
+<div class="col-sm-3">
+	<h3>Slot</h3>
+	<ul>
+		<li><code>caption</code></li>
+		<li><code>th</code></li>
+		<li><code>td</code></li>
+	</ul>
+</div>
+
+
+<div class="col-sm-3">
+	<h3>Group</h3>
+	<ul>
+		<li><code>thead</code></li>
+		<li><code>tbody</code></li>
+		<li><code>tfoot</code></li>
+		<li><code>colgroup</code></li>
+	</ul>
+</div>
+
+</div>
+
+
+
+
+<h2>Tables using all elements</h2>
 
 <table class="table-bordered table blue">
 	<caption>Caption</caption>
@@ -302,7 +317,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>table</code> - Structural</h2>
+<h2><code>table</code></h2>
 
 
 <table class="table-bordered table" style="border-right: black solid 4px; border-bottom: black solid 4px; border-left: black solid 4px;">
@@ -396,7 +411,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>tr</code> - Structural</h2>
+<h2><code>tr</code></h2>
 
 <table class="table-bordered table">
 	<caption>Caption</caption>
@@ -488,7 +503,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>th</code> - Informative</h2>
+<h2><code>th</code></h2>
 
 
 <table class="table-bordered table">
@@ -583,7 +598,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>td</code> - Informative</h2>
+<h2><code>td</code></h2>
 
 <table class="table-bordered table">
 	<caption>Caption</caption>
@@ -677,7 +692,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>caption</code> - Informative</h2>
+<h2><code>caption</code></h2>
 
 
 <table class="table-bordered table">
@@ -773,7 +788,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <hr />
 
-<h2><code>thead</code> - Structural</h2>
+<h2><code>thead</code> - table header</h2>
 
 <table class="table-bordered table">
 	<caption>Caption</caption>
@@ -1336,6 +1351,62 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 
 
+
+
+
+<hr />
+
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Structural</h2>
+		<p>A structural element is used to classify and give a particular sementic to the informative element and their styling would affect the informative element associated to them. In the HTML the table structural element are:</p>
+		<ul>
+			<li><code>table</code></li>
+			<li><code>colgroup</code> [<em><code>span</code></em>]</li>
+			<li><code>col</code> [<em><code>span</code></em>]</li>
+			<li><code>thead</code></li>
+			<li><code>tbody</code></li>
+			<li><code>tfoot</code></li>
+			<li><code>tr</code></li>
+		</ul>
+	</div>
+	
+	<div class="col-md-6">
+		<h2>Informative</h2>
+		<p>The informative element is related to the visual look of the table. In the HTML the table informative element are:</p>
+		<ul>
+			<li><code>caption</code></li>
+			<li><code>th</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code>, <code>scope</code>, <code>abbr</code></em>]</li>
+			<li><code>td</code> [<em><code>colspan</code>, <code>rowspan</code>, <code>headers</code></em>]</li>
+		</ul>
+	</div>
+</div>
+
+
+<hr />
+
+<h2>Categories of cells (<code>th</code>, <code>td</code>)</h2>
+
+<dl class="dl-horizontal mrgn-tp-xl">
+	<dt>Layout</dt>
+	<dd>Use for presentational.</dd>
+	
+	<dt>Header</dt>
+	<dd>Define a series of cells.</dd>
+	
+	<dt>Data</dt>
+	<dd>Pieces of information.<dd>
+	
+	<dt>Description</dt>
+	<dd>Provide additional information about an header.<dd>
+	
+	<dt>Offset</dt>
+	<dd>Data cell that is located prior the header</dd>
+	
+	<dt>Summary</dt>
+	<dd>Data cells that summaries other data cells</dd>
+</dl>
 
 
 
