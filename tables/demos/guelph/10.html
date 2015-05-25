@@ -1,0 +1,573 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>HTML tables
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Dynamically stacks multiple sections of content, transforming them into a tabbed interface.">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
+
+
+<!-- Custom CSS -->
+<style>
+
+	th, td.header {
+		background-color: #0E4164;
+		color:white;
+	}
+	td.header {
+		font-weight: bold;
+	}
+</style>
+
+
+
+
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<object type="image/svg+xml" tabindex="-1" data="../../assets/logo.svg"></object>
+<span>Accessible HTML Tables <span class="wb-inv">, </span><small>The Accessibility Conference - University of Guelph 2015</small></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">Bad and Good Example</h1>
+
+
+
+<div class="wb-prettify"></div>
+
+
+<h2>Example 1</h2>
+
+<table class="table table-bordered">
+  <caption>Quantity of poster -  No th, using styling for identifying headers</caption>
+  <thead>
+    <tr>
+      <td class="header" colspan="2"></td>
+      <td class="header">Classic</td>
+      <td class="header">Modern</td>
+      <td class="header">Futuristic</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="header" colspan="5">WxT</td>
+	</tr>
+	<tr>
+      <td class="header" colspan="2">Full color</td>
+      <td>65</td>
+      <td>24</td>
+      <td>15</td>
+    </tr>
+    <tr>
+	  <td class="header" rowspan="2">Economic</td>
+      <td class="header">Black and white</td>
+      <td>12</td>
+      <td>66</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td class="header">Sepia</td>
+      <td>25</td>
+      <td>26</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td class="header" colspan="5">Canada</td>
+	</tr>
+	<tr>
+      <td class="header" colspan="2">Full color</td>
+      <td>74</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+    <tr>
+	  <td class="header">Economic</td>
+      <td class="header">Sepia</td>
+      <td>71</td>
+      <td>55</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+<details>
+	<summary>Source Code</summary>
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster - No th, using styling for identifying headers&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;Classic&lt;/td&gt;
+      &lt;td class="header"&gt;Modern&lt;/td&gt;
+      &lt;td class="header"&gt;Futuristic&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="5"&gt;WxT&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;Full color&lt;/td&gt;
+      &lt;td&gt;65&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;td class="header" rowspan="2"&gt;Economic&lt;/td&gt;
+      &lt;td class="header"&gt;Black and white&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class="header"&gt;Sepia&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="5"&gt;Canada&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;Full color&lt;/td&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+      &lt;td&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;td class="header"&gt;Economic&lt;/td&gt;
+      &lt;td class="header"&gt;Sepia&lt;/td&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+
+<!--
+
+<h2>Example 2</h2>
+
+<table class="table table-bordered">
+  <caption>Quantity of poster - No th, using strong for identifying headers</caption>
+  <thead>
+    <tr>
+      <td class="header" colspan="2"></td>
+      <td class="header"><strong>Classic</strong></td>
+      <td class="header"><strong>Modern</strong></td>
+      <td class="header"><strong>Futuristic</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="header" colspan="5"><strong>WxT</strong></td>
+	</tr>
+	<tr>
+      <td class="header" colspan="2"><strong>Full color</strong></td>
+      <td>65</td>
+      <td>24</td>
+      <td>15</td>
+    </tr>
+    <tr>
+	  <td class="header" rowspan="2"><strong>Economic</strong></td>
+      <td class="header"><strong>Black and white</strong></td>
+      <td>12</td>
+      <td>66</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td class="header"><strong>Sepia</strong></td>
+      <td>25</td>
+      <td>26</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td class="header" colspan="5"><strong>Canada</strong></td>
+	</tr>
+	<tr>
+      <td class="header" colspan="2"><strong>Full color</strong></td>
+      <td>74</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+    <tr>
+	  <td class="header"><strong>Economic</strong></td>
+      <td class="header"><strong>Sepia</strong></td>
+      <td>71</td>
+      <td>55</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+	<summary>Source Code</summary>
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster - No th, using strong for identifying headers&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Classic&lt;/strong&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Modern&lt;/strong&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Futuristic&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="5"&gt;&lt;strong&gt;WxT&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;&lt;strong&gt;Full color&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;65&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;td class="header" rowspan="2"&gt;&lt;strong&gt;Economic&lt;/strong&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Black and white&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Sepia&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class="header" colspan="5"&gt;&lt;strong&gt;Canada&lt;/strong&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;td class="header" colspan="2"&gt;&lt;strong&gt;Full color&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+      &lt;td&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;td class="header"&gt;&lt;strong&gt;Economic&lt;/strong&gt;&lt;/td&gt;
+      &lt;td class="header"&gt;&lt;strong&gt;Sepia&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+
+-->
+
+<h2>Example 2</h2>
+
+<table class="table table-bordered">
+  <caption>Quantity of poster - with th, no ids/headers</caption>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+      <th>Classic</th>
+      <th>Modern</th>
+      <th>Futuristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th colspan="5">WxT</th>
+	</tr>
+	<tr>
+      <th colspan="2">Full color</th>
+      <td>65</td>
+      <td>24</td>
+      <td>15</td>
+    </tr>
+    <tr>
+	  <th rowspan="2">Economic</th>
+      <th>Black and white</th>
+      <td>12</td>
+      <td>66</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>Sepia</th>
+      <td>25</td>
+      <td>26</td>
+      <td>24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th colspan="5">Canada</th>
+	</tr>
+	<tr>
+      <th colspan="2">Full color</th>
+      <td>74</td>
+      <td>48</td>
+      <td>86</td>
+    </tr>
+    <tr>
+	  <th>Economic</th>
+      <th>Sepia</th>
+      <td>71</td>
+      <td>55</td>
+      <td>66</td>
+    </tr>
+  </tbody>
+</table>
+
+<details>
+	<summary>Source Code</summary>
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster - with th, no ids/headers&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th colspan="2"&gt;&lt;/th&gt;
+      &lt;th&gt;Classic&lt;/th&gt;
+      &lt;th&gt;Modern&lt;/th&gt;
+      &lt;th&gt;Futuristic&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th colspan="5"&gt;WxT&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th colspan="2"&gt;Full color&lt;/th&gt;
+      &lt;td&gt;65&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th rowspan="2"&gt;Economic&lt;/th&gt;
+      &lt;th&gt;Black and white&lt;/th&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th colspan="5"&gt;Canada&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th colspan="2"&gt;Full color&lt;/th&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt;
+      &lt;td&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th&gt;Economic&lt;/th&gt;
+      &lt;th&gt;Sepia&lt;/th&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;55&lt;/td&gt;
+      &lt;td&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+
+
+
+<h2>Example 3</h2>
+
+
+<table class="table table-bordered">
+  <caption>Quantity of poster - with ids/headers</caption><colgroup><col /><col /></colgroup><colgroup><col /><col /><col /></colgroup>
+  <thead>
+    <tr>
+      <th id="tbl5" colspan="2"></th>
+      <th id="tbl6">Classic</th>
+      <th id="tbl7">Modern</th>
+      <th id="tbl8">Futuristic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="tbl12" colspan="5">WxT</th>
+	</tr>
+	<tr>
+      <th headers="tbl5 tbl12" id="tbl15" colspan="2">Full color</th>
+      <td headers="tbl6 tbl12 tbl15">65</td>
+      <td headers="tbl7 tbl12 tbl15">24</td>
+      <td headers="tbl8 tbl12 tbl15">15</td>
+    </tr>
+    <tr>
+	  <th headers="tbl5 tbl12" id="tbl29" rowspan="2">Economic</th>
+      <th headers="tbl5 tbl12 tbl29" id="tbl30">Black and white</th>
+      <td headers="tbl6 tbl12 tbl29 tbl30">12</td>
+      <td headers="tbl7 tbl12 tbl29 tbl30">66</td>
+      <td headers="tbl8 tbl12 tbl29 tbl30">48</td>
+    </tr>
+    <tr>
+      <th headers="tbl5 tbl12" id="tbl37">Sepia</th>
+      <td headers="tbl6 tbl12 tbl29 tbl37">25</td>
+      <td headers="tbl7 tbl12 tbl29 tbl37">26</td>
+      <td headers="tbl8 tbl12 tbl29 tbl37">24</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th id="tbl45" colspan="5">Canada</th>
+	</tr>
+	<tr>
+      <th headers="tbl5 tbl45" id="tbl48" colspan="2">Full color</th>
+      <td headers="tbl6 tbl45 tbl48">74</td>
+      <td headers="tbl7 tbl45 tbl48">48</td>
+      <td headers="tbl8 tbl45 tbl48">86</td>
+    </tr>
+    <tr>
+	  <th headers="tbl5 tbl45" id="tbl55">Economic</th>
+      <th headers="tbl5 tbl45 tbl55" id="tbl56">Sepia</th>
+      <td headers="tbl6 tbl45 tbl55 tbl56">71</td>
+      <td headers="tbl7 tbl45 tbl55 tbl56">55</td>
+      <td headers="tbl8 tbl45 tbl55 tbl56">66</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<details>
+	<summary>Source Code</summary>
+<pre class="prettyprint"><code>&lt;table&gt;
+  &lt;caption&gt;Quantity of poster - with ids/headers&lt;/caption&gt;&lt;colgroup&gt;&lt;col /&gt;&lt;col /&gt;&lt;/colgroup&gt;&lt;colgroup&gt;&lt;col /&gt;&lt;col /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id="tbl5" colspan="2"&gt;&lt;/th&gt;
+      &lt;th id="tbl6"&gt;Classic&lt;/th&gt;
+      &lt;th id="tbl7"&gt;Modern&lt;/th&gt;
+      &lt;th id="tbl8"&gt;Futuristic&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th id="tbl12" colspan="5"&gt;WxT&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th headers="tbl5 tbl12" id="tbl15" colspan="2"&gt;Full color&lt;/th&gt;
+      &lt;td headers="tbl6 tbl12 tbl15"&gt;65&lt;/td&gt;
+      &lt;td headers="tbl7 tbl12 tbl15"&gt;24&lt;/td&gt;
+      &lt;td headers="tbl8 tbl12 tbl15"&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th headers="tbl5 tbl12" id="tbl29" rowspan="2"&gt;Economic&lt;/th&gt;
+      &lt;th headers="tbl5 tbl12 tbl29" id="tbl30"&gt;Black and white&lt;/th&gt;
+      &lt;td headers="tbl6 tbl12 tbl29 tbl30"&gt;12&lt;/td&gt;
+      &lt;td headers="tbl7 tbl12 tbl29 tbl30"&gt;66&lt;/td&gt;
+      &lt;td headers="tbl8 tbl12 tbl29 tbl30"&gt;48&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th headers="tbl5 tbl12" id="tbl37"&gt;Sepia&lt;/th&gt;
+      &lt;td headers="tbl6 tbl12 tbl29 tbl37"&gt;25&lt;/td&gt;
+      &lt;td headers="tbl7 tbl12 tbl29 tbl37"&gt;26&lt;/td&gt;
+      &lt;td headers="tbl8 tbl12 tbl29 tbl37"&gt;24&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th id="tbl45" colspan="5"&gt;Canada&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+      &lt;th headers="tbl5 tbl45" id="tbl48" colspan="2"&gt;Full color&lt;/th&gt;
+      &lt;td headers="tbl6 tbl45 tbl48"&gt;74&lt;/td&gt;
+      &lt;td headers="tbl7 tbl45 tbl48"&gt;48&lt;/td&gt;
+      &lt;td headers="tbl8 tbl45 tbl48"&gt;86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+	  &lt;th headers="tbl5 tbl45" id="tbl55"&gt;Economic&lt;/th&gt;
+      &lt;th headers="tbl5 tbl45 tbl55" id="tbl56"&gt;Sepia&lt;/th&gt;
+      &lt;td headers="tbl6 tbl45 tbl55 tbl56"&gt;71&lt;/td&gt;
+      &lt;td headers="tbl7 tbl45 tbl55 tbl56"&gt;55&lt;/td&gt;
+      &lt;td headers="tbl8 tbl45 tbl55 tbl56"&gt;66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+</div>
+</div>
+
+</main>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+
+<![endif]-->
+</body>
+</html>
